@@ -38,7 +38,7 @@
                     <li><a href="#modulos">Módulos</a></li>
                     <li><a href="#ia">IA Integrada</a></li>
                     <li><a href="#demo">Demo</a></li>
-                    <li><a href="#contacto" class="btn-primary">Contacto</a></li>
+                    <li><a href="#contacto" class="btn-primary" style="color: white;">Contacto</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" aria-label="Abrir menú">
                     <span></span>
@@ -358,7 +358,7 @@
                 </div>
                 <div class="tech-item">
                     <div class="tech-logo">📦</div>
-                    <div class="tech-name">SQLite</div>
+                    <div class="tech-name">PostgreSQL</div>
                 </div>
                 <div class="tech-item">
                     <div class="tech-logo">🤖</div>
@@ -368,39 +368,74 @@
                     <div class="tech-logo">⚡</div>
                     <div class="tech-name">Vite</div>
                 </div>
-                <div class="tech-item">
-                    <div class="tech-logo">🎨</div>
-                    <div class="tech-name">CSS3</div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="demo" class="cta-section">
+    <section id="contacto" class="cta-section">
         <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">¿Listo para transformar tu contabilidad?</h2>
-                <p class="cta-subtitle">
-                    Sistema completo con IA local, protege tus datos mientras automatizas tu negocio.
-                </p>
-                <div class="cta-buttons">
-                    <a href="#contacto" class="btn-cta btn-primary">
-                        Solicitar Información
-                    </a>
-                    <a href="#caracteristicas" class="btn-cta btn-secondary">
-                        Ver Características
-                    </a>
+            <div class="cta-layout">
+                <div class="cta-text-content">
+                    <h2 class="cta-title">¿Listo para transformar tu contabilidad?</h2>
+                    <p class="cta-subtitle">
+                        Sistema completo con IA local. Escríbenos y lleva la innovación a tu negocio hoy mismo.
+                    </p>
+                    <ul class="cta-features-list">
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Tus datos bajo tu propio control
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            IA adaptada a las leyes fiscales actuales
+                        </li>
+                        <li>
+                            <span class="check-icon">✓</span>
+                            Multi-empresas y sin límites ocultos
+                        </li>
+                    </ul>
+                    <p class="cta-note">
+                        🔒 Tu información segura - 100% IA local en tu servidor
+                    </p>
                 </div>
-                <p class="cta-note">
-                    🔒 Tu información segura en tu servidor - IA 100% local
-                </p>
+                
+                <div class="cta-form-container">
+                    <h3 style="margin-bottom:0.5rem; font-size:1.8rem; font-weight:800; text-align:center;">Hablemos</h3>
+                    <p class="cta-form-subtitle" style="text-align:center; color:var(--gray); margin-bottom:2rem; font-size:0.95rem;">Déjanos tus datos y un experto se contactará contigo.</p>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required>
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="juan@empresa.com" required>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div class="form-row">
+                                <label for="empresa">Empresa</label>
+                                <input type="text" id="empresa" name="empresa" placeholder="Tu Empresa SA">
+                            </div>
+                            <div class="form-row">
+                                <label for="telefono">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="(55) 1234 5678">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label for="mensaje">¿En qué podemos ayudarte?</label>
+                            <textarea id="mensaje" name="mensaje" rows="3" placeholder="Me interesa implementar CHUDBI en mi negocio..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary btn-submit">Enviar Mensaje</button>
+                        <div class="form-status" role="status" aria-live="polite"></div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contacto" class="footer">
+    <footer id="footer" class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -439,34 +474,6 @@
                         <li><a href="#">Soporte Técnico</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-section footer-form">
-                    <h4>Formulario de Contacto</h4>
-                    <form id="contact-form" class="contact-form">
-                        <div class="form-row">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                        </div>
-                        <div class="form-row">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="tu@empresa.com" required>
-                        </div>
-                        <div class="form-row">
-                            <label for="empresa">Empresa</label>
-                            <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa">
-                        </div>
-                        <div class="form-row">
-                            <label for="telefono">Telefono</label>
-                            <input type="tel" id="telefono" name="telefono" placeholder="(55) 5555 5555">
-                        </div>
-                        <div class="form-row">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuentanos que necesitas" required></textarea>
-                        </div>
-                        <button type="submit" class="btn-primary">Enviar</button>
-                        <div class="form-status" role="status" aria-live="polite"></div>
-                    </form>
-                </div>
             </div>
             
             <div class="footer-bottom">
@@ -476,6 +483,8 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

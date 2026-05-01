@@ -48,27 +48,84 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Intersection Observer for animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
-};
+// --- GSAP Premium Corporate Animations ---
+gsap.registerPlugin(ScrollTrigger);
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+// 1. Hero Section Animation (Carga inicial)
+gsap.fromTo(".hero-title", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.2, clearProps: "all" });
+gsap.fromTo(".hero-subtitle", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.4, clearProps: "all" });
+gsap.fromTo(".hero-buttons", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.6, clearProps: "all" });
+gsap.fromTo(".hero-stats .stat", 
+    { opacity: 0, y: 20 },
+    { 
+        opacity: 1, 
+        y: 0, 
+        duration: 0.8, 
+        stagger: 0.2, 
+        ease: "power2.out", 
+        delay: 0.8,
+        clearProps: "all"
+    }
+);
+
+// 2. Sections Titles (Aparecen al hacer scroll)
+gsap.utils.toArray('.section-title').forEach(title => {
+    gsap.fromTo(title, 
+        { opacity: 0, y: 20 },
+        {
+            scrollTrigger: {
+                trigger: title,
+                start: "top 90%", // Inicia animación cuando el título toca el 90%
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            clearProps: "all"
         }
-    });
-}, observerOptions);
+    );
+});
 
-// Animate elements on scroll
-document.querySelectorAll('.feature-card, .module-category, .tech-item, .testimonial-card').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
+// 3. Grids Staggered Animation (Características, Módulos, Tech Stack)
+const grids = ['.features-grid', '.modules-grid', '.tech-grid', '.testimonials-grid'];
+
+grids.forEach(gridClass => {
+    const grid = document.querySelector(gridClass);
+    if (!grid) return;
+
+    // Seleccionamos los hijos directos del grid (las tarjetas)
+    const elements = Array.from(grid.children);
+    
+    gsap.fromTo(elements, 
+        {
+            opacity: 0,
+            y: 30
+        },
+        {
+            scrollTrigger: {
+                trigger: grid,
+                start: "top 85%",
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.1, // Espera 0.1s entre cada elemento para dar efecto escalera
+            ease: "power3.out",
+            clearProps: "all"
+        }
+    );
+});
+
+// 4. Parallax Sutil para elementos del Hero (Opcional extra premium)
+gsap.to(".hero-image", {
+    yPercent: 15,
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".hero",
+        start: "top top", 
+        end: "bottom top",
+        scrub: true
+    }
 });
 
 // Chat simulation (for demo)
@@ -132,21 +189,6 @@ if (heroStats) {
     statsObserver.observe(heroStats);
 }
 
-// Add parallax effect to hero
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const heroContent = document.querySelector('.hero-content');
-    const heroImage = document.querySelector('.hero-image');
-    
-    if (heroContent && scrolled < 600) {
-        heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-        heroContent.style.opacity = 1 - (scrolled / 600);
-    }
-    
-    if (heroImage && scrolled < 600) {
-        heroImage.style.transform = `translateY(calc(-50% + ${scrolled * 0.2}px))`;
-    }
-});
 
 // Add mobile menu styles dynamically
 const style = document.createElement('style');
