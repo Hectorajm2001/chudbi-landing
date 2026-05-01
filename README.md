@@ -99,6 +99,75 @@ La landing page está optimizada para:
 - Contador animado en estadísticas
 - Efectos de navbar al hacer scroll
 
+## 📨 Formulario de Contacto + Google Sheets
+
+El formulario en el footer envia los datos a Google Sheets usando Google Apps Script.
+
+### 1) Crear la hoja
+
+- Crea un Google Sheet llamado, por ejemplo, **Contactos**
+- En la primera fila agrega estos encabezados:
+
+```
+Timestamp | Nombre | Email | Empresa | Telefono | Mensaje
+```
+
+### 2) Crear Apps Script
+
+En el Google Sheet:
+
+1. Extensions -> Apps Script
+2. Reemplaza el contenido con:
+
+```javascript
+const SHEET_NAME = 'Contactos';
+
+function doPost(e) {
+    const lock = LockService.getScriptLock();
+    lock.tryLock(10000);
+
+    try {
+        const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+        const data = e.parameter;
+
+        sheet.appendRow([
+            new Date(),
+            data.nombre || '',
+            data.email || '',
+            data.empresa || '',
+            data.telefono || '',
+            data.mensaje || ''
+        ]);
+
+        return ContentService
+            .createTextOutput(JSON.stringify({ result: 'success' }))
+            .setMimeType(ContentService.MimeType.JSON)
+            .setHeader('Access-Control-Allow-Origin', '*')
+            .setHeader('Access-Control-Allow-Methods', 'POST');
+    } finally {
+        lock.releaseLock();
+    }
+}
+```
+
+### 3) Publicar como Web App
+
+1. Deploy -> New deployment
+2. Select type: Web app
+3. Execute as: Me
+4. Who has access: Anyone
+5. Deploy y copia el URL que termina en `/exec`
+
+### 4) Pegar el URL en la web
+
+En [script.js](script.js) reemplaza:
+
+```
+const scriptURL = 'PASTE_APPS_SCRIPT_URL_HERE';
+```
+
+con tu URL de Apps Script.
+
 ## 🔧 Desarrollo Local
 
 Para probar localmente:
@@ -154,7 +223,7 @@ Agrega a `index.html`:
 - [ ] Agregar imágenes reales del dashboard
 - [ ] Crear favicon
 - [ ] Agregar Google Analytics
-- [ ] Implementar formulario de contacto funcional
+- [x] Implementar formulario de contacto funcional
 - [ ] Agregar capturas de pantalla de módulos
 - [ ] Crear página de documentación separada
 - [ ] Agregar testimonios de usuarios

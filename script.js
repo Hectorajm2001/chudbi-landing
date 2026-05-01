@@ -190,3 +190,54 @@ window.addEventListener('load', () => {
 });
 
 console.log('💼 CHUDBI Landing Page - Sistema Contable con IA Local');
+
+// Contact form -> Google Sheets (Apps Script Web App)
+const contactForm = document.querySelector('#contact-form');
+const formStatus = document.querySelector('.form-status');
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyzjzAcTr8SfbzOALlnPn3p7x2eiQ_uO9qxKeDT8rqZNPyHaU145nzWJPehN4AubWM/exec';
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!scriptURL || scriptURL.includes('PASTE_APPS_SCRIPT_URL_HERE')) {
+            if (formStatus) {
+                formStatus.textContent = 'Falta configurar el enlace de Google Apps Script.';
+                formStatus.classList.remove('success');
+                formStatus.classList.add('error');
+            }
+            return;
+        }
+
+        if (formStatus) {
+            formStatus.textContent = 'Enviando...';
+            formStatus.classList.remove('success', 'error');
+        }
+
+        const formData = new FormData(contactForm);
+
+        try {
+            const response = await fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+
+            contactForm.reset();
+            if (formStatus) {
+                formStatus.textContent = 'Gracias. Tu mensaje fue enviado.';
+                formStatus.classList.remove('error');
+                formStatus.classList.add('success');
+            }
+        } catch (error) {
+            if (formStatus) {
+                formStatus.textContent = 'No se pudo enviar. Intenta de nuevo.';
+                formStatus.classList.remove('success');
+                formStatus.classList.add('error');
+            }
+        }
+    });
+}
