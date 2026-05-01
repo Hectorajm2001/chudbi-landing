@@ -220,13 +220,14 @@ Agrega a `index.html`:
 
 ## 🎯 Próximos Pasos
 
-- [ ] Agregar imágenes reales del dashboard
-- [ ] Crear favicon
-- [ ] Agregar Google Analytics
+- [ ] Agregar imágenes reales del dashboard (y reemplazar el div de dashboard simulado)
+- [x] Sustituir emojis por iconos/imágenes reales de la marca
+- [x] Crear favicon
+- [x] Agregar Google Analytics
 - [x] Implementar formulario de contacto funcional
 - [ ] Agregar capturas de pantalla de módulos
-- [ ] Crear página de documentación separada
-- [ ] Agregar testimonios de usuarios
+- [x] Crear página de documentación separada
+- [x] Agregar testimonios de usuarios
 
 ## 🔒 Privacidad y Seguridad
 

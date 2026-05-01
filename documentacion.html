@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación - CHUDBI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3BDRFKE6S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-S3BDRFKE6S');
+    </script>
+    <style>
+        .docs-container {
+            display: flex;
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+        .docs-sidebar {
+            width: 250px;
+            background: #f8f9fa;
+            padding: 2rem;
+            border-right: 1px solid var(--gray-light);
+            position: fixed;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+        }
+        .docs-sidebar ul {
+            list-style: none;
+        }
+        .docs-sidebar li {
+            margin-bottom: 1rem;
+        }
+        .docs-sidebar a {
+            text-decoration: none;
+            color: var(--gray);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .docs-sidebar a:hover, .docs-sidebar a.active {
+            color: var(--primary);
+        }
+        .docs-content {
+            margin-left: 250px;
+            padding: 3rem;
+            flex: 1;
+            max-width: 800px;
+        }
+        .docs-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        .docs-content h2 {
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .docs-content p {
+            margin-bottom: 1rem;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 768px) {
+            .docs-container {
+                flex-direction: column;
+            }
+            .docs-sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--gray-light);
+            }
+            .docs-content {
+                margin-left: 0;
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-icon">💼</span>
+                    <a href="index.html" class="logo-text" style="color: inherit; text-decoration: none;">CHUDBI</a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#caracteristicas">Características</a></li>
+                    <li><a href="index.html#modulos">Módulos</a></li>
+                    <li><a href="documentacion.html" style="color: var(--primary);">Documentación</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Docs Layout -->
+    <div class="docs-container">
+        <aside class="docs-sidebar">
+            <ul>
+                <li><a href="#intro" class="active">Introducción</a></li>
+                <li><a href="#instalacion">Instalación Local</a></li>
+                <li><a href="#chudbot">Uso de CHUDBOT</a></li>
+                <li><a href="#facturacion">Facturación</a></li>
+                <li><a href="#reportes">Generación de Reportes</a></li>
+            </ul>
+        </aside>
+        
+        <main class="docs-content">
+            <section id="intro">
+                <h1>Documentación de CHUDBI</h1>
+                <p>Bienvenido a la documentación oficial del Sistema de Contabilidad Inteligente CHUDBI. Aquí encontrarás guías paso a paso para maximizar el uso de nuestra plataforma y nuestra IA local, CHUDBOT.</p>
+            </section>
+
+            <section id="instalacion">
+                <h2>Instalación Local</h2>
+                <p>CHUDBI se instala directamente en el servidor de tu negocio. Esto garantiza que todos tus datos financieros permanezcan bajo tu control.</p>
+                <p><em>(Contenido de guía de instalación pendiente de agregar por el administrador)</em></p>
+            </section>
+
+            <section id="chudbot">
+                <h2>Uso de CHUDBOT</h2>
+                <p>CHUDBOT es tu asistente de IA. Puedes hacerle preguntas sobre leyes fiscales, ISR, y balances de tu empresa.</p>
+                <p>Para invocarlo, haz clic en el ícono del robot en la esquina inferior derecha o ve al módulo "IA" en tu dashboard.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
