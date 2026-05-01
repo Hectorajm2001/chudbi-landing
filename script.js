@@ -259,15 +259,14 @@ if (contactForm) {
         const formData = new FormData(contactForm);
 
         try {
-            const response = await fetch(scriptURL, {
+            // Google Apps Script requires mode: 'no-cors' for POST requests with FormData
+            await fetch(scriptURL, {
                 method: 'POST',
+                mode: 'no-cors',
                 body: formData
             });
 
-            if (!response.ok) {
-                throw new Error('Request failed');
-            }
-
+            // With no-cors, we can't read the response.ok, so we assume success if no network error
             contactForm.reset();
             if (formStatus) {
                 formStatus.textContent = 'Gracias. Tu mensaje fue enviado.';
