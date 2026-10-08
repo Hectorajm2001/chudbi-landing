@@ -1,19 +1,16 @@
-/* CHUDBI · Tema claro (Grafito) y oscuro (Medianoche), como en la app.
-   El tema inicial lo fija un script en <head> (sin parpadeo); aquí vive el botón, el cambio de capturas por tema
-   y el seguimiento del tema del sistema mientras la persona no elija uno. */
+/* CHUDBI · Tema claro (Grafito, por defecto) y oscuro (Medianoche), como en la app.
+   El tema inicial lo fija un script en <head> (sin parpadeo); aquí viven el botón y el cambio de capturas por tema. */
 (() => {
   'use strict';
 
   const CLAVE = 'chudbi-tema';
   const html = document.documentElement;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const sistemaClaro = window.matchMedia('(prefers-color-scheme: light)');
   const meta = document.querySelector('meta[name="theme-color"]');
   const botones = Array.from(document.querySelectorAll('[data-theme-toggle]'));
-  const leer = () => { try { return localStorage.getItem(CLAVE); } catch { return null; } };
   const guardar = (t) => { try { localStorage.setItem(CLAVE, t); } catch { /* sin almacenamiento */ } };
 
-  const actual = () => (html.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+  const actual = () => (html.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
   // Imágenes con versión por tema: src = oscura, data-light = clara
   const cambiarImagenes = (t) => {
@@ -60,10 +57,6 @@
   };
 
   botones.forEach((b) => b.addEventListener('click', () => alternar(b)));
-
-  // Si la persona no ha elegido, seguir al sistema
-  const alCambiarSistema = (e) => { if (!leer()) aplicar(e.matches ? 'light' : 'dark'); };
-  if (sistemaClaro.addEventListener) sistemaClaro.addEventListener('change', alCambiarSistema);
 
   window.chudbiTema = { actual };
   sincronizar();

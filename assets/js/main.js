@@ -297,7 +297,7 @@
   const screens = tour ? $('.screens', tour) : null;
   const buildScreens = () => {
     if (!screens || screens.childElementCount) return;
-    const claro = html.getAttribute('data-theme') === 'light';
+    const claro = html.getAttribute('data-theme') !== 'dark';
     tourSteps.forEach((st, i) => {
       const img = new Image();
       // Versión oscura y clara: tema.js cambia entre ellas al alternar el tema

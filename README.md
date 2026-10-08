@@ -1,74 +1,152 @@
-# Landing page · CHUDBI
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/brand/logo-h-white.png">
+    <img src="assets/brand/logo-h.png" alt="CHUDBI · Debe Haber" width="360">
+  </picture>
+</p>
 
-Sitio estático de CHUDBI: HTML, CSS y JavaScript sin compilación. Cada push a `main` se despliega en Vercel
-(https://chudbi-landing.vercel.app/) y en GitHub Pages. Este README no se publica en Vercel (`.vercelignore`).
+<p align="center">
+  <strong>Sitio oficial de CHUDBI</strong><br>
+  El sistema contable y administrativo para PYMEs mexicanas, con un asistente de inteligencia artificial privado.
+</p>
 
-## Estructura
+<p align="center">
+  <a href="https://chudbi-landing.vercel.app/"><strong>Ver el sitio</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://chudbi-landing.vercel.app/documentacion.html">Guía de uso</a>
+  &nbsp;·&nbsp;
+  <a href="https://chudbi-landing.vercel.app/#contacto">Solicitar demo</a>
+</p>
 
-```
-index.html            Landing
-documentacion.html    Guía de uso para clientes
-assets/
-  css/main.css        Estilos; tokens de color para modo oscuro (Medianoche) y claro (Grafito)
-  js/tema.js          Modo claro/oscuro: botón, transición circular, capturas por tema, tema del sistema
-  js/main.js          Movimiento: GSAP + ScrollTrigger (+ Lenis solo con mouse)
-  brand/              Logotipo blanco y a color, isotipo separado en capas, favicon, imagen para redes
-  icons/              Ilustraciones de la identidad gráfica (WebP con transparencia)
-  shots/              Capturas reales del sistema; las que terminan en -claro son del tema claro
-images/               Archivos originales de la identidad gráfica
-```
+---
 
-Librerías por CDN (versiones fijas): GSAP 3.12.5 y ScrollTrigger (cdnjs), Lenis 1.1.13 (unpkg). Si no cargan, la página
-sigue completa y legible.
+## Contenido
 
-## Tono del contenido
+- [El sitio](#el-sitio)
+- [Ejecutar en local](#ejecutar-en-local)
+- [Publicación](#publicación)
+- [Estructura](#estructura)
+- [Mantenimiento](#mantenimiento)
+- [Formulario de contacto](#formulario-de-contacto)
 
-La página es para clientes: habla de beneficios y datos del producto, sin jerga técnica ni nombres de librerías,
-modelos o infraestructura. Las cifras son reales y se cuentan en el sistema; si cambian, se actualizan aquí y en la página.
+## El sitio
 
-## Modo claro y oscuro
-
-El tema inicial es el que la persona eligió antes (`localStorage`, clave `chudbi-tema`) o el de su sistema. Un script
-en `<head>` lo fija antes de pintar para evitar parpadeos. Las imágenes con versión clara llevan `data-light`; los pasos
-del recorrido, `data-shot-light`. Elementos solo de un tema: clases `only-dark` y `only-light`.
-
-## Secciones y movimiento
-
-| Sección | Qué hace |
+| Sección | Qué comunica |
 |---|---|
-| Intro | El isotipo se arma capa por capa (menta, teal, azul, «C», línea dorada) |
-| Hero | Título por palabras y captura real del Dashboard que se endereza con el scroll; en celular la captura se recorre como una cámara |
-| Biblioteca normativa | Marquesina de los documentos que consulta CHUDBOT; acelera con la velocidad del scroll |
-| Manifiesto | Frase de marca que se enciende palabra por palabra |
-| Recorrido | 11 módulos con la pantalla fijada y transición de capturas; en celular, captura arriba con paneo |
-| Módulos | Scroll horizontal fijado con los 24 módulos del menú real |
-| CHUDBOT | Robot en SVG (parpadea, sigue el puntero o el dedo, habla) y chat animado |
-| Temas | Comparador claro/oscuro que se mueve con el scroll o se arrastra |
-| Seguridad, cifras | Diagrama con flujos animados y contadores |
+| Inicio | La propuesta de valor y una captura real del sistema |
+| Biblioteca normativa | Las leyes, reglamentos y guías del SAT que consulta CHUDBOT |
+| Manifiesto | Debe ▲ Haber: de dónde viene la contabilidad y lo que CHUDBI hace con esa tradición |
+| Recorrido | Once módulos del sistema, pantalla por pantalla |
+| Módulos | Los 24 módulos del sistema, agrupados por área |
+| CHUDBOT | Qué hace el asistente y cómo llega al artículo exacto de la ley |
+| Modo claro y oscuro | Los dos temas del sistema, lado a lado |
+| Seguridad | Accesos, bitácora, cierre de periodos y cumplimiento fiscal |
+| En cifras | Datos medidos del producto |
+| Contacto | Formulario para solicitar una demostración |
 
-Con «Reducir movimiento» activado se conservan fundidos, contadores, el chat y el recorrido con fundidos; se quitan
-intro, parallax, marquesina y desplazamientos grandes.
+El sitio arranca en **modo claro**; el botón de sol y luna cambia al oscuro y recuerda la elección. En celular, el
+recorrido y los módulos se fijan en pantalla y avanzan con el scroll, igual que en escritorio.
 
-## De dónde salen las cifras
+## Ejecutar en local
 
-Conteo del 8 de octubre de 2026 en el sistema: 24 módulos del menú, 36 acciones de CHUDBOT (20 piden confirmación),
-40 documentos normativos en 22,232 fragmentos, 1,076 cuentas del código agrupador del SAT, parámetros de nómina 2026 y
-7 de 8 casos contables y fiscales correctos en las pruebas internas del asistente. El chat animado usa preguntas de esas
-pruebas.
-
-Las capturas se tomaron del sistema real con las empresas de demostración. Algunos acentos de esos datos estaban
-dañados («N├│mina»); solo para las capturas se corrigieron en pantalla.
-
-## Formulario de contacto
-
-Envía a Google Sheets mediante un Web App de Apps Script (URL en `assets/js/main.js`, constante `scriptURL`). Campos:
-`nombre`, `email`, `empresa`, `telefono`, `mensaje`. Apps Script no expone CORS, así que se envía con `mode: 'no-cors'`
-y solo se detectan errores de red.
-
-## Desarrollo local
+No necesita instalación ni compilación:
 
 ```bash
 python -m http.server 8000
 ```
 
-Abre `http://localhost:8000`.
+Después abre <http://localhost:8000>.
+
+## Publicación
+
+Cada push a `main` publica el sitio automáticamente en:
+
+- **Vercel:** <https://chudbi-landing.vercel.app/>
+- **GitHub Pages:** <https://hectorajm2001.github.io/chudbi-landing/>
+
+Este README no se publica en Vercel (`.vercelignore`).
+
+## Estructura
+
+```
+├── index.html             Página principal
+├── documentacion.html     Guía de uso para clientes
+├── assets/
+│   ├── css/main.css       Estilos y colores de los dos temas
+│   ├── js/tema.js         Modo claro y oscuro
+│   ├── js/main.js         Animaciones, chat de CHUDBOT y formulario
+│   ├── brand/             Logotipos, isotipo por capas e íconos del sitio
+│   ├── icons/             Ilustraciones de la identidad gráfica
+│   └── shots/             Capturas del sistema
+└── images/                Originales de la identidad gráfica
+```
+
+## Mantenimiento
+
+### Cifras y textos
+
+Todas las cifras del sitio son datos reales del producto, contados el 8 de octubre de 2026. Si cambian, actualízalas
+en `index.html` (atributo `data-count` de cada contador) y en `documentacion.html`.
+
+### Capturas
+
+Cada captura existe en dos versiones dentro de `assets/shots/`: `nombre.webp` para el tema oscuro y
+`nombre-claro.webp` para el claro, en WebP a 1600 px de ancho. En el recorrido, cada paso las indica con
+`data-shot` y `data-shot-light`; en el resto de la página, las imágenes usan `data-light` o las clases `only-dark` y
+`only-light`.
+
+### Colores
+
+Los colores de los dos temas están al inicio de `assets/css/main.css`: el bloque `:root` es el tema claro (por defecto)
+y `[data-theme="dark"]` el oscuro. La paleta parte del isotipo:
+
+| Navy | Azul | Teal | Menta | Oro |
+|:---:|:---:|:---:|:---:|:---:|
+| `#18365E` | `#21658F` | `#1D979E` | `#36B5AC` | `#E6C064` |
+
+### Animaciones
+
+Usan GSAP 3.12.5 con ScrollTrigger, cargados desde CDN con versión fija. Si la persona tiene activado «Reducir
+movimiento», el sitio conserva transiciones suaves sin desplazamientos grandes. Si las librerías no cargan, el contenido
+sigue completo y legible.
+
+## Formulario de contacto
+
+Cada mensaje llega a una hoja de Google Sheets mediante un Web App de Apps Script. La dirección del Web App está en
+`assets/js/main.js` (constante `scriptURL`) y los campos que envía son `nombre`, `email`, `empresa`, `telefono` y
+`mensaje`.
+
+<details>
+<summary>Configurar el Web App</summary>
+
+1. Crea una hoja con una pestaña llamada `Contactos` y estos encabezados:
+   `Timestamp | Nombre | Email | Empresa | Telefono | Mensaje`.
+2. En **Extensiones → Apps Script**, pega este código:
+
+   ```javascript
+   const SHEET_NAME = 'Contactos';
+
+   function doPost(e) {
+     const lock = LockService.getScriptLock();
+     lock.tryLock(10000);
+     try {
+       const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+       const d = e.parameter;
+       sheet.appendRow([new Date(), d.nombre || '', d.email || '', d.empresa || '', d.telefono || '', d.mensaje || '']);
+       return ContentService.createTextOutput(JSON.stringify({ result: 'success' }))
+         .setMimeType(ContentService.MimeType.JSON);
+     } finally {
+       lock.releaseLock();
+     }
+   }
+   ```
+
+3. Publica con **Implementar → Nueva implementación → Aplicación web**, ejecutando como tú y con acceso para
+   cualquier persona.
+4. Copia la URL que termina en `/exec` en `scriptURL`.
+
+</details>
+
+---
+
+<p align="center">© 2026 CHUDBI · Debe ▲ Haber · Orgullosamente mexicanos</p>

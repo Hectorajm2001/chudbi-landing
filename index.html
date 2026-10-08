@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CHUDBI · ERP fiscal mexicano con IA local</title>
   <meta name="description" content="CHUDBI reúne contabilidad, CFDI 4.0, nómina 2026, bancos, inventarios, ventas e impuestos en un solo sistema, con CHUDBOT: un asistente de IA que corre en tu propio equipo y cita la ley vigente.">
-  <meta name="theme-color" content="#050B16">
-  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#F5F7FB">
+  <meta name="color-scheme" content="light dark">
   <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 
@@ -25,11 +25,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>
-    // Tema antes de pintar: lo elegido por la persona o, si no, el del sistema
+    // Tema antes de pintar: lo que eligió la persona o, si no, el claro
     (function () {
       var d = document.documentElement, t = null;
       try { t = localStorage.getItem('chudbi-tema'); } catch (e) {}
-      if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      if (t !== 'light' && t !== 'dark') t = 'light';
       d.setAttribute('data-theme', t);
       d.classList.add('js');
     })();
@@ -74,7 +74,7 @@
         <a href="#seguridad">Seguridad</a>
         <a href="#numeros">Números</a>
       </nav>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo claro">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo oscuro">
         <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
         <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1Z"/></svg>
       </button>
@@ -177,9 +177,9 @@
     <section class="tour" id="recorrido" aria-labelledby="tour-title">
       <div class="wrap section-head">
         <p class="eyebrow">El sistema, por dentro</p>
-        <h2 id="tour-title" data-reveal>Once pantallas reales.<br><span class="muted">Ni una maqueta.</span></h2>
-        <p class="lead" data-reveal>Capturas del sistema funcionando con las empresas de demostración que trae precargadas.
-          Desplázate: cada paso es un módulo que ya existe y ya funciona.</p>
+        <h2 id="tour-title" data-reveal>Toda tu operación.<br><span class="muted">Pantalla por pantalla.</span></h2>
+        <p class="lead" data-reveal>Contabilidad, facturación, nómina, ventas, inventarios e impuestos en un mismo sistema.
+          Desliza y recorre cada módulo.</p>
       </div>
 
       <div class="tour-stage" data-tour>
@@ -461,7 +461,7 @@
             <div class="chat-body" data-chat aria-live="off"></div>
             <div class="chat-input"><span data-chat-typing>Escribe tu pregunta o adjunta un archivo…</span><b>↵</b></div>
           </div>
-          <p class="fine">Animación ilustrativa con preguntas de nuestras pruebas internas.</p>
+          <p class="fine">Ejemplo de conversación con CHUDBOT.</p>
         </div>
 
         <div class="bot-specs">
@@ -486,9 +486,9 @@
             <p class="spec-d">Leyes, reglamentos, RMF 2026 y guías del SAT, en 22,232 fragmentos para llegar al artículo exacto.</p>
           </article>
           <article class="spec">
-            <p class="spec-k">Casos contables y fiscales</p>
-            <p class="spec-v"><span data-count="7">7</span><small> de 8 correctos</small></p>
-            <p class="spec-d">En nuestras pruebas internas con respuesta verificable, como honorarios con retenciones.</p>
+            <p class="spec-k">Respuestas con fuente</p>
+            <p class="spec-v">Cita el artículo</p>
+            <p class="spec-d">Cada respuesta sobre la ley indica de qué documento y artículo sale, para que la verifiques.</p>
           </article>
           <article class="spec spec-wide">
             <p class="spec-k">Lee tus archivos</p>
@@ -497,7 +497,7 @@
           </article>
           <article class="spec spec-wide">
             <p class="spec-k">Equipo recomendado para CHUDBOT</p>
-            <p class="spec-d">Una computadora con tarjeta gráfica NVIDIA de 8 GB y 16 GB de RAM, como la de nuestras pruebas. El resto del sistema se usa desde el navegador.</p>
+            <p class="spec-d">Una computadora con tarjeta gráfica NVIDIA de 8 GB y 16 GB de RAM. El resto del sistema se usa desde el navegador.</p>
           </article>
         </div>
       </div>
@@ -588,7 +588,7 @@
         <div class="num"><p class="num-v" data-count="36">36</p><p class="num-k">acciones que CHUDBOT puede hacer por ti</p></div>
         <div class="num"><p class="num-v" data-count="20">20</p><p class="num-k">acciones que siempre piden tu confirmación</p></div>
       </div>
-      <p class="wrap fine num-note">Cifras del sistema al 8 de octubre de 2026.</p>
+      <p class="wrap fine num-note">Cifras vigentes a octubre de 2026.</p>
     </section>
 
     <!-- ============ Hecho en México ============ -->
@@ -617,11 +617,11 @@
         <div class="cta-copy">
           <p class="eyebrow">Hablemos</p>
           <h2 id="cta-title" data-reveal>Ve CHUDBI funcionando<br><span class="grad">con tus propios números.</span></h2>
-          <p class="lead">Déjanos tus datos y te contactamos para una demostración del sistema y de CHUDBOT corriendo en local.</p>
+          <p class="lead">Déjanos tus datos y agendamos una demostración de CHUDBI y CHUDBOT para tu empresa.</p>
           <ul class="cta-points">
             <li>Multiempresa desde el primer día</li>
-            <li>Asistente de primer arranque para configurar tu empresa</li>
-            <li>La IA corre en tu propio equipo</li>
+            <li>Configuración guiada en cuatro pasos</li>
+            <li>La IA trabaja en tu propia oficina</li>
           </ul>
         </div>
         <form id="contact-form" class="form" novalidate>

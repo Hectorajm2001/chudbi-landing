@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guía de uso · CHUDBI</title>
   <meta name="description" content="Guía de uso de CHUDBI: primeros pasos, cómo moverte por el sistema, CHUDBOT, facturación CFDI 4.0, nómina 2026 y seguridad.">
-  <meta name="theme-color" content="#050B16">
-  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#F5F7FB">
+  <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://chudbi-landing.vercel.app/documentacion.html">
   <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
@@ -14,11 +14,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
-    // Tema antes de pintar: lo elegido por la persona o, si no, el del sistema
+    // Tema antes de pintar: lo que eligió la persona o, si no, el claro
     (function () {
       var d = document.documentElement, t = null;
       try { t = localStorage.getItem('chudbi-tema'); } catch (e) {}
-      if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      if (t !== 'light' && t !== 'dark') t = 'light';
       d.setAttribute('data-theme', t);
     })();
   </script>
@@ -83,7 +83,7 @@
         <a href="index.html#seguridad">Seguridad</a>
         <a href="documentacion.html" class="is-current" aria-current="page">Guía</a>
       </nav>
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo claro">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo oscuro">
         <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
         <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1Z"/></svg>
       </button>
