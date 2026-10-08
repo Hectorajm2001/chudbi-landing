@@ -1,143 +1,282 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentación - CHUDBI</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3BDRFKE6S"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-S3BDRFKE6S');
-    </script>
-    <style>
-        .docs-container {
-            display: flex;
-            margin-top: 80px;
-            min-height: calc(100vh - 80px);
-        }
-        .docs-sidebar {
-            width: 250px;
-            background: #f8f9fa;
-            padding: 2rem;
-            border-right: 1px solid var(--gray-light);
-            position: fixed;
-            height: calc(100vh - 80px);
-            overflow-y: auto;
-        }
-        .docs-sidebar ul {
-            list-style: none;
-        }
-        .docs-sidebar li {
-            margin-bottom: 1rem;
-        }
-        .docs-sidebar a {
-            text-decoration: none;
-            color: var(--gray);
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .docs-sidebar a:hover, .docs-sidebar a.active {
-            color: var(--primary);
-        }
-        .docs-content {
-            margin-left: 250px;
-            padding: 3rem;
-            flex: 1;
-            max-width: 800px;
-        }
-        .docs-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-        .docs-content h2 {
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        .docs-content p {
-            margin-bottom: 1rem;
-            color: var(--gray);
-            line-height: 1.7;
-        }
-        
-        @media (max-width: 768px) {
-            .docs-container {
-                flex-direction: column;
-            }
-            .docs-sidebar {
-                width: 100%;
-                position: relative;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid var(--gray-light);
-            }
-            .docs-content {
-                margin-left: 0;
-                padding: 2rem 1.5rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentación · CHUDBI</title>
+  <meta name="description" content="Guía de instalación y uso de CHUDBI: requisitos, Docker, variables de entorno, primer arranque, CHUDBOT, facturación CFDI 4.0 y seguridad.">
+  <meta name="theme-color" content="#050B16">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    .docs-hero { position: relative; padding: 150px 0 60px; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .docs-hero::before { content: ''; position: absolute; inset: -40% -10% auto auto; width: 70vw; height: 70vw; border-radius: 50%; background: radial-gradient(circle, rgba(29, 151, 158, .25), transparent 65%); pointer-events: none; }
+    .docs-hero h1 { font-family: var(--f-display); font-weight: 600; letter-spacing: -.04em; line-height: 1; font-size: clamp(2.6rem, 6vw, 5rem); margin-top: 18px; }
+    .docs { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: clamp(32px, 6vw, 90px); padding-block: 60px 120px; }
+    .docs-toc { position: sticky; top: 110px; align-self: start; display: grid; gap: 2px; border-left: 1px solid var(--line-2); padding-left: 18px; }
+    .docs-toc a { color: var(--faint); font-size: 14.5px; padding: 6px 0; transition: color .2s; }
+    .docs-toc a:hover, .docs-toc a.is-current { color: var(--text); }
+    .docs-body { max-width: 780px; }
+    .docs-body section { scroll-margin-top: 110px; padding-bottom: 56px; margin-bottom: 56px; border-bottom: 1px solid var(--line); }
+    .docs-body section:last-child { border-bottom: 0; }
+    .docs-body h2 { font-size: clamp(1.8rem, 3.2vw, 2.5rem); margin-top: 10px; }
+    .docs-body h3 { font-size: 1.2rem; margin-top: 30px; }
+    .docs-body p, .docs-body li { color: var(--muted); }
+    .docs-body p { margin-top: 14px; }
+    .docs-body strong { color: var(--text); font-weight: 600; }
+    .docs-body ul.list { margin-top: 14px; display: grid; gap: 8px; }
+    .docs-body ul.list li { position: relative; padding-left: 22px; }
+    .docs-body ul.list li::before { content: ''; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 2px; transform: rotate(45deg); background: var(--mint); }
+    .docs-body ol.steps { margin-top: 18px; display: grid; gap: 14px; counter-reset: paso; }
+    .docs-body ol.steps > li { counter-increment: paso; position: relative; padding-left: 46px; }
+    .docs-body ol.steps > li::before { content: counter(paso); position: absolute; left: 0; top: -2px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-content: center; font-family: var(--f-mono); font-size: 13px; background: var(--bg-3); border: 1px solid var(--line-2); color: var(--gold); }
+    pre { margin: 12px 0 0; padding: 16px 18px; border-radius: 14px; border: 1px solid var(--line-2); background: #060D19; overflow-x: auto; font-family: var(--f-mono); font-size: 13.5px; line-height: 1.7; color: #CFE2EE; }
+    pre code { color: inherit; font-size: inherit; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14.5px; }
+    th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { font-family: var(--f-mono); font-size: 11.5px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); }
+    td { color: var(--muted); }
+    td:first-child { white-space: nowrap; }
+    td code { white-space: nowrap; }
+    .table-wrap { overflow-x: auto; }
+    .note { margin-top: 18px; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(230, 192, 100, .35); background: rgba(230, 192, 100, .06); color: #E9DDBE; font-size: 15px; }
+    .docs-body p.note { margin-top: 18px; color: #E9DDBE; }
+    @media (max-width: 900px) {
+      .docs { grid-template-columns: minmax(0, 1fr); }
+      .docs-toc { position: static; border-left: 0; padding-left: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 16px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3BDRFKE6S"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S3BDRFKE6S');
+  </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-content">
-                <div class="logo">
-                    <span class="logo-icon">💼</span>
-                    <a href="index.html" class="logo-text" style="color: inherit; text-decoration: none;">CHUDBI</a>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html#caracteristicas">Características</a></li>
-                    <li><a href="index.html#modulos">Módulos</a></li>
-                    <li><a href="documentacion.html" style="color: var(--primary);">Documentación</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Docs Layout -->
-    <div class="docs-container">
-        <aside class="docs-sidebar">
-            <ul>
-                <li><a href="#intro" class="active">Introducción</a></li>
-                <li><a href="#instalacion">Instalación Local</a></li>
-                <li><a href="#chudbot">Uso de CHUDBOT</a></li>
-                <li><a href="#facturacion">Facturación</a></li>
-                <li><a href="#reportes">Generación de Reportes</a></li>
-            </ul>
-        </aside>
-        
-        <main class="docs-content">
-            <section id="intro">
-                <h1>Documentación de CHUDBI</h1>
-                <p>Bienvenido a la documentación oficial del Sistema de Contabilidad Inteligente CHUDBI. Aquí encontrarás guías paso a paso para maximizar el uso de nuestra plataforma y nuestra IA local, CHUDBOT.</p>
-            </section>
-
-            <section id="instalacion">
-                <h2>Instalación Local</h2>
-                <p>CHUDBI se instala directamente en el servidor de tu negocio. Esto garantiza que todos tus datos financieros permanezcan bajo tu control.</p>
-                <p><em>(Contenido de guía de instalación pendiente de agregar por el administrador)</em></p>
-            </section>
-
-            <section id="chudbot">
-                <h2>Uso de CHUDBOT</h2>
-                <p>CHUDBOT es tu asistente de IA. Puedes hacerle preguntas sobre leyes fiscales, ISR, y balances de tu empresa.</p>
-                <p>Para invocarlo, haz clic en el ícono del robot en la esquina inferior derecha o ve al módulo "IA" en tu dashboard.</p>
-            </section>
-        </main>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <header class="nav is-solid" data-nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="CHUDBI, volver al inicio">
+        <img src="assets/brand/logo-h-white.png" alt="CHUDBI · Debe Haber" width="900" height="231">
+      </a>
+      <nav class="nav-links" aria-label="Secciones">
+        <a href="index.html#recorrido">Recorrido</a>
+        <a href="index.html#modulos">Módulos</a>
+        <a href="index.html#chudbot">CHUDBOT</a>
+        <a href="index.html#tecnologia">Tecnología</a>
+        <a href="documentacion.html" class="is-current" aria-current="page">Documentación</a>
+      </nav>
+      <a href="index.html#contacto" class="btn btn-gold btn-sm"><span>Solicitar demo</span></a>
+      <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil"><span></span><span></span></button>
     </div>
+    <div class="nav-mobile" id="menu-movil" hidden>
+      <a href="index.html#recorrido">Recorrido</a>
+      <a href="index.html#modulos">Módulos</a>
+      <a href="index.html#chudbot">CHUDBOT</a>
+      <a href="index.html#tecnologia">Tecnología</a>
+      <a href="index.html#contacto" class="btn btn-gold"><span>Solicitar demo</span></a>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <div class="docs-hero">
+      <div class="wrap">
+        <p class="eyebrow">Documentación</p>
+        <h1>Instala, configura<br><span class="grad">y empieza a cuadrar.</span></h1>
+        <p class="lead">Guía práctica para levantar CHUDBI, conectar la IA local y usar los módulos fiscales.</p>
+      </div>
+    </div>
+
+    <div class="wrap docs">
+      <nav class="docs-toc" aria-label="Contenido de la guía">
+        <a href="#que-es">Qué es CHUDBI</a>
+        <a href="#requisitos">Requisitos</a>
+        <a href="#docker">Instalación con Docker</a>
+        <a href="#manual">Instalación manual</a>
+        <a href="#entorno">Variables de entorno</a>
+        <a href="#primer-arranque">Primer arranque</a>
+        <a href="#chudbot">CHUDBOT</a>
+        <a href="#facturacion">Facturación CFDI</a>
+        <a href="#atajos">Atajos de teclado</a>
+        <a href="#seguridad">Seguridad</a>
+      </nav>
+
+      <div class="docs-body">
+        <section id="que-es">
+          <p class="eyebrow">01</p>
+          <h2>Qué es CHUDBI</h2>
+          <p>CHUDBI es un ERP fiscal para PYMEs mexicanas: contabilidad en partida doble, facturación CFDI 4.0, nómina con parámetros 2026, bancos, CRM, compras, inventarios, impuestos y portales, en <strong>24 módulos</strong> que comparten una sola base de datos PostgreSQL.</p>
+          <p>Incluye a <strong>CHUDBOT</strong>, un asistente de IA que corre en tu propio equipo (llama.cpp), consulta tus datos con 36 herramientas y busca en 40 documentos normativos indexados.</p>
+        </section>
+
+        <section id="requisitos">
+          <p class="eyebrow">02</p>
+          <h2>Requisitos</h2>
+          <ul class="list">
+            <li><strong>Node.js 20 o superior</strong> (las imágenes de Docker usan <code>node:20-alpine</code>).</li>
+            <li><strong>PostgreSQL 16</strong> con la extensión <strong>pgvector</strong> (la usa la búsqueda en documentos normativos).</li>
+            <li><strong>Opcional, para la IA local:</strong> un servidor compatible con la API de OpenAI, como <code>llama-server</code> de llama.cpp. Equipo de referencia: RTX 4070 Laptop de 8 GB con 16 GB de RAM.</li>
+            <li><strong>Opcional, para timbrar:</strong> una cuenta de Facturapi y tus certificados (CSD) cargados ahí.</li>
+          </ul>
+        </section>
+
+        <section id="docker">
+          <p class="eyebrow">03</p>
+          <h2>Instalación con Docker</h2>
+          <p>El repositorio trae un <code>docker-compose.yml</code> con tres servicios: PostgreSQL 16 con pgvector, el backend (que inicializa la base y arranca la API) y el frontend.</p>
+<pre><code>docker compose up -d --build</code></pre>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Servicio</th><th>Imagen / origen</th><th>Puerto</th></tr></thead>
+              <tbody>
+                <tr><td><code>postgres</code></td><td><code>pgvector/pgvector:pg16</code></td><td>5432</td></tr>
+                <tr><td><code>backend</code></td><td><code>BETA/sistema-contable-pymes</code></td><td>3005</td></tr>
+                <tr><td><code>frontend</code></td><td><code>BETA/sistema-contable-pymes/client</code></td><td>80</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="manual">
+          <p class="eyebrow">04</p>
+          <h2>Instalación manual</h2>
+          <ol class="steps">
+            <li>
+              <p><strong>Backend.</strong> Instala dependencias, crea el esquema y arranca la API. Las migraciones de <code>database/migrations</code> también se aplican al arrancar.</p>
+<pre><code>cd BETA/sistema-contable-pymes
+npm install
+npm run init-db
+npm run start</code></pre>
+            </li>
+            <li>
+              <p><strong>Frontend.</strong> En otra terminal:</p>
+<pre><code>cd BETA/sistema-contable-pymes/client
+npm install
+npm run dev</code></pre>
+            </li>
+            <li>
+              <p><strong>Pruebas.</strong> Las 219 pruebas unitarias corren con el runner nativo de Node:</p>
+<pre><code>npm run test:all</code></pre>
+            </li>
+          </ol>
+        </section>
+
+        <section id="entorno">
+          <p class="eyebrow">05</p>
+          <h2>Variables de entorno</h2>
+          <p>Se definen en <code>BETA/sistema-contable-pymes/.env</code>. Parte de <code>.env.example</code> y nunca subas el archivo real al repositorio.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Variable</th><th>Para qué sirve</th></tr></thead>
+              <tbody>
+                <tr><td><code>PGHOST</code> · <code>PGPORT</code> · <code>PGUSER</code> · <code>PGPASSWORD</code> · <code>PGDATABASE</code></td><td>Conexión a PostgreSQL.</td></tr>
+                <tr><td><code>PORT</code></td><td>Puerto de la API.</td></tr>
+                <tr><td><code>JWT_SECRET</code></td><td>Firma de las sesiones.</td></tr>
+                <tr><td><code>ENCRYPTION_KEY</code></td><td>Cifrado de datos sensibles guardados.</td></tr>
+                <tr><td><code>FACTURAPI_KEY</code></td><td>Timbrado de CFDI con el PAC.</td></tr>
+                <tr><td><code>BANXICO_TOKEN</code></td><td>Tipo de cambio diario de Banxico.</td></tr>
+                <tr><td><code>LM_STUDIO_BASE_URL</code> · <code>LM_STUDIO_API_KEY</code></td><td>Dirección y clave del servidor de IA local.</td></tr>
+                <tr><td><code>IA_THINKING</code> · <code>IA_VISION</code></td><td>Apagan el modo razonamiento o la lectura de imágenes con <code>0</code>.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="primer-arranque">
+          <p class="eyebrow">06</p>
+          <h2>Primer arranque</h2>
+          <p>La primera vez que un usuario entra, CHUDBI abre el <strong>asistente de configuración</strong> en cuatro pasos: contraseña y sus políticas, doble factor (2FA), datos de la empresa y confirmación. Al terminarlo se carga el sistema completo.</p>
+          <p>Para cambiar de razón social usa el selector <strong>Empresa</strong> de la barra superior: CHUDBI es multiempresa.</p>
+        </section>
+
+        <section id="chudbot">
+          <p class="eyebrow">07</p>
+          <h2>CHUDBOT, el asistente de IA</h2>
+          <p>Ábrelo desde <strong>Asistente IA</strong> en el menú o con el botón del robot que aparece en la esquina inferior derecha de cada pantalla.</p>
+          <ul class="list">
+            <li><strong>Consulta:</strong> saldos bancarios, facturas, clientes, proveedores, inventario, pólizas, estados financieros y nómina.</li>
+            <li><strong>Escribe con permiso:</strong> las 20 herramientas que crean o modifican datos piden tu confirmación explícita y quedan en la bitácora de auditoría.</li>
+            <li><strong>Cita la ley:</strong> busca en 40 documentos normativos (CFF, LISR, LIVA, LFT, LSS, RMF 2026 y sus anexos, guías del CFDI 4.0) con búsqueda vectorial.</li>
+            <li><strong>Lee archivos:</strong> PDF, Word, Excel, PowerPoint, CSV, XML de CFDI, JSON e imágenes, hasta 20 MB.</li>
+          </ul>
+          <p>Desde <strong>CHUDBOT Admin</strong> revisas el estado del motor, la configuración, los documentos indexados, las conversaciones, la auditoría y las herramientas registradas.</p>
+          <p class="note">CHUDBOT puede equivocarse: revisa siempre cifras y fundamentos antes de presentar una declaración.</p>
+        </section>
+
+        <section id="facturacion">
+          <p class="eyebrow">08</p>
+          <h2>Facturación CFDI 4.0</h2>
+          <ul class="list">
+            <li><strong>Timbrado con PAC:</strong> con <code>FACTURAPI_KEY</code> configurada, cada factura se timbra y descargas su XML y PDF.</li>
+            <li><strong>Timbrado asistido en el portal del SAT:</strong> CHUDBI prepara la ficha y llena el formulario de «Genera tu factura» en tu navegador, después de que inicias sesión. Nunca recibe tu e.firma ni tu contraseña, y no pulsa «sellar» por ti.</li>
+            <li><strong>Cancelación:</strong> con los cuatro motivos vigentes (01 a 04) según el CFF art. 29-A y la RMF 2026.</li>
+            <li><strong>Descarga masiva:</strong> requiere la FIEL de la empresa configurada.</li>
+          </ul>
+        </section>
+
+        <section id="atajos">
+          <p class="eyebrow">09</p>
+          <h2>Atajos de teclado</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Atajo</th><th>Acción</th></tr></thead>
+              <tbody>
+                <tr><td><kbd>Ctrl</kbd> / <kbd>⌘</kbd> + <kbd>K</kbd></td><td>Búsqueda global en facturas, clientes, proveedores, pólizas, inventario y nómina.</td></tr>
+                <tr><td><kbd>Ctrl</kbd> / <kbd>⌘</kbd> + <kbd>B</kbd></td><td>Mostrar u ocultar el menú lateral.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="seguridad">
+          <p class="eyebrow">10</p>
+          <h2>Seguridad</h2>
+          <ul class="list">
+            <li><strong>Doble factor (TOTP):</strong> actívalo en <strong>Usuarios y Roles → Mi perfil y 2FA</strong> con cualquier app de autenticación.</li>
+            <li><strong>Roles y permisos:</strong> define qué puede consultar o modificar cada perfil.</li>
+            <li><strong>Bitácora:</strong> cada operación, incluidas las de la IA, guarda usuario, módulo, IP y fecha.</li>
+            <li><strong>Periodos cerrados:</strong> la base de datos bloquea con triggers cualquier cambio en pólizas y facturas de un periodo cerrado.</li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-bottom">
+      <p>© 2026 CHUDBI. Todos los derechos reservados.</p>
+      <p><a href="index.html">Volver al inicio</a></p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const burger = document.querySelector('.nav-burger');
+      const menu = document.getElementById('menu-movil');
+      burger.addEventListener('click', () => {
+        const open = burger.getAttribute('aria-expanded') !== 'true';
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        menu.hidden = !open;
+      });
+      const links = Array.from(document.querySelectorAll('.docs-toc a'));
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) links.forEach((a) => a.classList.toggle('is-current', a.getAttribute('href') === '#' + e.target.id));
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      document.querySelectorAll('.docs-body section').forEach((s) => obs.observe(s));
+    })();
+  </script>
 </body>
 </html>
