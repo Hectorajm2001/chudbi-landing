@@ -6,7 +6,7 @@
   <title>CHUDBI · ERP fiscal mexicano con IA local</title>
   <meta name="description" content="CHUDBI reúne contabilidad, CFDI 4.0, nómina 2026, bancos, inventarios, ventas e impuestos en un solo sistema, con CHUDBOT: un asistente de IA que corre en tu propio equipo y cita la ley vigente.">
   <meta name="theme-color" content="#050B16">
-  <meta name="color-scheme" content="dark">
+  <meta name="color-scheme" content="dark light">
   <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 
@@ -24,9 +24,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/shots/dashboard-2400.webp" fetchpriority="high">
+  <script>
+    // Tema antes de pintar: lo elegido por la persona o, si no, el del sistema
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem('chudbi-tema'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      d.setAttribute('data-theme', t);
+      d.classList.add('js');
+    })();
+  </script>
   <link rel="stylesheet" href="assets/css/main.css">
-  <script>document.documentElement.classList.add('js');</script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3BDRFKE6S"></script>
@@ -56,15 +64,20 @@
   <header class="nav" data-nav>
     <div class="nav-inner">
       <a href="#inicio" class="nav-logo" aria-label="CHUDBI, ir al inicio">
-        <img src="assets/brand/logo-h-white.png" alt="CHUDBI · Debe Haber" width="900" height="231">
+        <img class="only-dark" src="assets/brand/logo-h-white.png" alt="CHUDBI · Debe Haber" width="900" height="231">
+        <img class="only-light" src="assets/brand/logo-h.png" alt="CHUDBI · Debe Haber" width="900" height="231">
       </a>
       <nav class="nav-links" aria-label="Secciones">
         <a href="#recorrido">Recorrido</a>
         <a href="#modulos">Módulos</a>
         <a href="#chudbot">CHUDBOT</a>
-        <a href="#tecnologia">Tecnología</a>
+        <a href="#seguridad">Seguridad</a>
         <a href="#numeros">Números</a>
       </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo claro">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.6A8.5 8.5 0 0 1 9.4 3.5a8.5 8.5 0 1 0 11.1 11.1Z"/></svg>
+      </button>
       <a href="#contacto" class="btn btn-gold btn-sm magnetic"><span>Solicitar demo</span></a>
       <button class="nav-burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-movil"><span></span><span></span></button>
     </div>
@@ -72,7 +85,7 @@
       <a href="#recorrido">Recorrido</a>
       <a href="#modulos">Módulos</a>
       <a href="#chudbot">CHUDBOT</a>
-      <a href="#tecnologia">Tecnología</a>
+      <a href="#seguridad">Seguridad</a>
       <a href="#numeros">Números</a>
       <a href="#contacto" class="btn btn-gold"><span>Solicitar demo</span></a>
     </div>
@@ -89,7 +102,7 @@
       </div>
 
       <div class="wrap hero-copy">
-        <p class="eyebrow hero-eyebrow"><span class="dot"></span>ERP fiscal · Hecho en México · IA local</p>
+        <p class="eyebrow hero-eyebrow">Orgullosamente mexicanos</p>
         <h1 class="hero-title" data-split>
           <span class="line">Contabilidad mexicana.</span>
           <span class="line grad">Inteligencia local.</span>
@@ -105,16 +118,17 @@
         </div>
         <ul class="hero-facts" aria-label="Datos del sistema">
           <li><b>24</b> módulos</li>
-          <li><b>36</b> herramientas de IA</li>
+          <li>IA <b>privada</b></li>
           <li><b>40</b> documentos normativos</li>
-          <li><b>CFDI 4.0</b> · Nómina 1.2</li>
+          <li><b>CFDI 4.0</b> y nómina 2026</li>
         </ul>
       </div>
 
       <div class="hero-stage" aria-label="Captura real del Dashboard de CHUDBI">
         <div class="hero-frame">
           <div class="chrome"><i></i><i></i><i></i><span>chudbi · Dashboard de control ejecutivo</span></div>
-          <img src="assets/shots/dashboard-2400.webp" alt="Dashboard de control ejecutivo de CHUDBI en modo oscuro: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" fetchpriority="high">
+          <img class="only-dark" src="assets/shots/dashboard-2400.webp" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" loading="lazy" fetchpriority="high">
+          <img class="only-light" src="assets/shots/dashboard-claro-2400.webp" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" loading="lazy" fetchpriority="high">
           <div class="frame-glare" aria-hidden="true"></div>
         </div>
         <img class="float f-bot" src="assets/icons/chudbot.webp" alt="" aria-hidden="true">
@@ -130,7 +144,7 @@
 
     <!-- ============ Biblioteca normativa (marquesina) ============ -->
     <section class="ticker" aria-label="Documentos normativos que consulta CHUDBOT">
-      <p class="ticker-label eyebrow">Biblioteca normativa que CHUDBOT consulta y cita · 40 documentos indexados</p>
+      <p class="ticker-label eyebrow">Biblioteca normativa que CHUDBOT consulta y cita · 40 documentos</p>
       <div class="marquee" data-marquee="1">
         <div class="marquee-track">
           <span>Código Fiscal de la Federación</span><span>Ley del ISR</span><span>Ley del IVA</span><span>Ley del IEPS</span>
@@ -154,9 +168,7 @@
       <div class="wrap">
         <p class="eyebrow">Debe ▲ Haber</p>
         <p class="manifesto-text" data-words>
-          Cada peso tiene dos lados y cada dato tiene un dueño. CHUDBI cuadra tu contabilidad en partida doble y
-          su inteligencia artificial corre en tu propio hardware: lo que le preguntas a CHUDBOT, y la contabilidad que
-          consulta para responderte, no se envía a la nube de un proveedor de IA.
+          Hace más de cinco mil años, la escritura nació para llevar cuentas. En 1494, Luca Pacioli enseñó al mundo que todo debe tiene su haber. Hoy esa sabiduría trabaja para tu negocio: números que cuadran, decisiones con claridad y una inteligencia que te acompaña en cada peso.
         </p>
       </div>
     </section>
@@ -186,7 +198,7 @@
         </ol>
 
         <div class="tour-steps">
-          <article class="tour-step" data-shot="assets/shots/dashboard.webp" data-alt="Dashboard de control ejecutivo de CHUDBI">
+          <article class="tour-step" data-shot="assets/shots/dashboard.webp" data-shot-light="assets/shots/dashboard-claro.webp" data-alt="Dashboard de control ejecutivo de CHUDBI">
             <img class="step-icon" src="assets/icons/graficas.webp" alt="" aria-hidden="true">
             <p class="step-n">01 · Administración</p>
             <h3>Dashboard de control ejecutivo</h3>
@@ -196,23 +208,23 @@
               <li>Estado de la FIEL del SAT</li>
               <li>Multiempresa: cambia de razón social en un clic</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/dashboard.webp" alt="Dashboard de control ejecutivo de CHUDBI" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/dashboard.webp" data-light="assets/shots/dashboard-claro.webp" alt="Dashboard de control ejecutivo de CHUDBI" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/contabilidad.webp" data-alt="Pólizas contables de CHUDBI">
+          <article class="tour-step" data-shot="assets/shots/contabilidad.webp" data-shot-light="assets/shots/contabilidad-claro.webp" data-alt="Pólizas contables de CHUDBI">
             <img class="step-icon" src="assets/icons/dinero.webp" alt="" aria-hidden="true">
             <p class="step-n">02 · Contabilidad y finanzas</p>
             <h3>Pólizas que se escriben solas, y cuadran</h3>
-            <p>Ingresos, egresos y diario con partida doble validada en vivo. Facturas, bancos, nóminas y CFDI generan su póliza solos, con folio determinista para no contabilizar dos veces.</p>
+            <p>Ingresos, egresos y diario con partida doble validada en vivo. Facturas, bancos, nóminas y CFDI generan su póliza solos, sin registrar dos veces lo mismo.</p>
             <ul class="chips">
-              <li>Bloqueo de periodo aplicado por triggers en la base</li>
+              <li>Meses cerrados que nadie puede modificar</li>
               <li>Depreciación fiscal · LISR arts. 31, 34 y 36</li>
               <li>IVA en flujo de efectivo · LIVA art. 1-B</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/contabilidad.webp" alt="Pólizas contables de CHUDBI" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/contabilidad.webp" data-light="assets/shots/contabilidad-claro.webp" alt="Pólizas contables de CHUDBI" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/catalogo.webp" data-alt="Catálogo de cuentas con código agrupador SAT">
+          <article class="tour-step" data-shot="assets/shots/catalogo.webp" data-shot-light="assets/shots/catalogo-claro.webp" data-alt="Catálogo de cuentas con código agrupador SAT">
             <img class="step-icon" src="assets/icons/portapapeles.webp" alt="" aria-hidden="true">
             <p class="step-n">03 · Catálogo de cuentas</p>
             <h3>El código agrupador del SAT, completo</h3>
@@ -222,10 +234,10 @@
               <li>Naturaleza deudora y acreedora</li>
               <li>Saldos por cuenta y subcuenta</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/catalogo.webp" alt="Catálogo de cuentas con código agrupador SAT" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/catalogo.webp" data-light="assets/shots/catalogo-claro.webp" alt="Catálogo de cuentas con código agrupador SAT" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/facturacion.webp" data-alt="Facturación electrónica CFDI 4.0 en CHUDBI">
+          <article class="tour-step" data-shot="assets/shots/facturacion.webp" data-shot-light="assets/shots/facturacion-claro.webp" data-alt="Facturación electrónica CFDI 4.0 en CHUDBI">
             <img class="step-icon" src="assets/icons/documento.webp" alt="" aria-hidden="true">
             <p class="step-n">04 · Operaciones</p>
             <h3>Facturación electrónica CFDI 4.0</h3>
@@ -235,10 +247,10 @@
               <li>Descarga masiva del SAT con FIEL</li>
               <li>Importación y revisión de XML recibidos</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/facturacion.webp" alt="Facturación electrónica CFDI 4.0 en CHUDBI" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/facturacion.webp" data-light="assets/shots/facturacion-claro.webp" alt="Facturación electrónica CFDI 4.0 en CHUDBI" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/nomina.webp" data-alt="Nómina y recursos humanos en CHUDBI">
+          <article class="tour-step" data-shot="assets/shots/nomina.webp" data-shot-light="assets/shots/nomina-claro.webp" data-alt="Nómina y recursos humanos en CHUDBI">
             <img class="step-icon" src="assets/icons/personas.webp" alt="" aria-hidden="true">
             <p class="step-n">05 · Recursos humanos</p>
             <h3>Nómina mexicana con parámetros 2026</h3>
@@ -248,10 +260,10 @@
               <li>Salario mínimo general: <b>$315.04</b></li>
               <li>Layouts SPEI y SUA · recibos CFDI de nómina 1.2</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/nomina.webp" alt="Nómina y recursos humanos en CHUDBI" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/nomina.webp" data-light="assets/shots/nomina-claro.webp" alt="Nómina y recursos humanos en CHUDBI" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/crm-embudo.webp" data-alt="Embudo de ventas Kanban del CRM">
+          <article class="tour-step" data-shot="assets/shots/crm-embudo.webp" data-shot-light="assets/shots/crm-embudo-claro.webp" data-alt="Embudo de ventas Kanban del CRM">
             <img class="step-icon" src="assets/icons/maletin.webp" alt="" aria-hidden="true">
             <p class="step-n">06 · Operaciones</p>
             <h3>CRM y ventas, de prospecto a factura</h3>
@@ -261,10 +273,10 @@
               <li>Punto de venta (POS) con ticket imprimible</li>
               <li>Cuentas por cobrar ligadas a pedidos y facturas</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/crm-embudo.webp" alt="Embudo de ventas Kanban del CRM" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/crm-embudo.webp" data-light="assets/shots/crm-embudo-claro.webp" alt="Embudo de ventas Kanban del CRM" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/inventarios.webp" data-alt="Inventarios, existencias y kardex">
+          <article class="tour-step" data-shot="assets/shots/inventarios.webp" data-shot-light="assets/shots/inventarios-claro.webp" data-alt="Inventarios, existencias y kardex">
             <img class="step-icon" src="assets/icons/cadenas.webp" alt="" aria-hidden="true">
             <p class="step-n">07 · Cadena de suministro</p>
             <h3>Compras e inventarios multialmacén</h3>
@@ -274,10 +286,10 @@
               <li>Traspasos entre almacenes</li>
               <li>Cuentas por pagar ligadas a órdenes de compra</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/inventarios.webp" alt="Inventarios, existencias y kardex" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/inventarios.webp" data-light="assets/shots/inventarios-claro.webp" alt="Inventarios, existencias y kardex" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/impuestos.webp" data-alt="Impuestos y retenciones fiscales">
+          <article class="tour-step" data-shot="assets/shots/impuestos.webp" data-shot-light="assets/shots/impuestos-claro.webp" data-alt="Impuestos y retenciones fiscales">
             <img class="step-icon" src="assets/icons/banco.webp" alt="" aria-hidden="true">
             <p class="step-n">08 · Fiscal</p>
             <h3>Impuestos y retenciones, al día 17</h3>
@@ -287,10 +299,10 @@
               <li>Importación desde Excel</li>
               <li>Validación de estructura CFDI 4.0</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/impuestos.webp" alt="Impuestos y retenciones fiscales" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/impuestos.webp" data-light="assets/shots/impuestos-claro.webp" alt="Impuestos y retenciones fiscales" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/micuenta.webp" data-alt="Portal de autoservicio del empleado">
+          <article class="tour-step" data-shot="assets/shots/micuenta.webp" data-shot-light="assets/shots/micuenta-claro.webp" data-alt="Portal de autoservicio del empleado">
             <img class="step-icon" src="assets/icons/telefono.webp" alt="" aria-hidden="true">
             <p class="step-n">09 · Portales</p>
             <h3>Portales para empleados, proveedores y clientes</h3>
@@ -300,23 +312,23 @@
               <li>Portal B2B de proveedores y licitaciones</li>
               <li>Mesa de ayuda · tienda en línea B2C</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/micuenta.webp" alt="Portal de autoservicio del empleado" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/micuenta.webp" data-light="assets/shots/micuenta-claro.webp" alt="Portal de autoservicio del empleado" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/auditoria.webp" data-alt="Bitácora de auditoría y trazabilidad">
+          <article class="tour-step" data-shot="assets/shots/auditoria.webp" data-shot-light="assets/shots/auditoria-claro.webp" data-alt="Bitácora de auditoría y trazabilidad">
             <img class="step-icon" src="assets/icons/candado.webp" alt="" aria-hidden="true">
             <p class="step-n">10 · Seguridad y control</p>
             <h3>Quién hizo qué, cuándo y desde dónde</h3>
             <p>Bitácora de cada operación, también las de la IA, con usuario, módulo, IP y ubicación, más el historial de cambios campo por campo.</p>
             <ul class="chips">
-              <li>Doble factor (TOTP) y roles con permisos</li>
+              <li>Verificación en dos pasos y permisos por rol</li>
               <li>Sesiones activas e intentos de acceso</li>
-              <li>Helmet, límite de peticiones y JWT</li>
+              <li>Bloqueo ante intentos masivos de acceso</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/auditoria.webp" alt="Bitácora de auditoría y trazabilidad" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/auditoria.webp" data-light="assets/shots/auditoria-claro.webp" alt="Bitácora de auditoría y trazabilidad" width="1600" height="1000"></figure>
           </article>
 
-          <article class="tour-step" data-shot="assets/shots/busqueda-global.webp" data-alt="Búsqueda global con Ctrl+K">
+          <article class="tour-step" data-shot="assets/shots/busqueda-global.webp" data-shot-light="assets/shots/busqueda-global-claro.webp" data-alt="Búsqueda global con Ctrl+K">
             <img class="step-icon" src="assets/icons/herramientas.webp" alt="" aria-hidden="true">
             <p class="step-n">11 · Productividad</p>
             <h3>Todo a un <kbd>Ctrl</kbd> + <kbd>K</kbd> de distancia</h3>
@@ -326,7 +338,7 @@
               <li>Exporta a Excel y PDF</li>
               <li>Modo claro y oscuro</li>
             </ul>
-            <figure class="step-shot"><img loading="lazy" src="assets/shots/busqueda-global.webp" alt="Búsqueda global con Ctrl+K" width="1600" height="1000"></figure>
+            <figure class="step-shot"><img loading="lazy" src="assets/shots/busqueda-global.webp" data-light="assets/shots/busqueda-global-claro.webp" alt="Búsqueda global con Ctrl+K" width="1600" height="1000"></figure>
           </article>
         </div>
 
@@ -345,9 +357,9 @@
     <section class="mods" id="modulos" aria-labelledby="mods-title">
       <div class="mods-pin">
         <div class="wrap section-head mods-head">
-          <p class="eyebrow">Arquitectura funcional</p>
-          <h2 id="mods-title" data-reveal>24 módulos.<br><span class="muted">Una sola base de datos.</span></h2>
-          <p class="lead" data-reveal>Todo vive en el mismo PostgreSQL: lo que factura Ventas lo ve Contabilidad, lo que paga Nómina lo concilia Bancos.</p>
+          <p class="eyebrow">Todo en un lugar</p>
+          <h2 id="mods-title" data-reveal>24 módulos.<br><span class="muted">Un solo sistema.</span></h2>
+          <p class="lead" data-reveal>Todo está conectado: lo que factura Ventas lo ve Contabilidad, lo que paga Nómina lo concilia Bancos.</p>
         </div>
         <div class="mods-track" data-hscroll>
           <article class="mod-card">
@@ -396,7 +408,7 @@
             <img src="assets/icons/chudbot.webp" alt="" aria-hidden="true">
             <p class="mod-count">1 módulo · en todas las pantallas</p>
             <h3>Inteligencia artificial</h3>
-            <ul><li>Asistente IA CHUDBOT</li><li>Disponible como agente flotante en cada módulo</li></ul>
+            <ul><li>Asistente IA CHUDBOT</li><li>Disponible en cada pantalla del sistema</li></ul>
           </article>
         </div>
       </div>
@@ -408,8 +420,8 @@
       <div class="wrap section-head">
         <p class="eyebrow">CHUDBOT · Asistente de IA local</p>
         <h2 id="bot-title" data-reveal>Pregúntale a tu contabilidad.<br><span class="grad">Te responde con la ley en la mano.</span></h2>
-        <p class="lead" data-reveal>CHUDBOT entiende español, consulta tus datos con 36 herramientas, busca en 40 documentos normativos y
-          nunca crea ni modifica nada sin que lo confirmes.</p>
+        <p class="lead" data-reveal>CHUDBOT entiende español, consulta tu información, busca en 40 documentos normativos y nunca crea ni
+          modifica nada sin que lo confirmes.</p>
       </div>
 
       <div class="wrap bot-grid">
@@ -444,107 +456,71 @@
             <div class="chat-head">
               <img src="assets/icons/chudbot.webp" alt="" aria-hidden="true">
               <div><strong>CHUDBOT</strong><span>Motor de IA local</span></div>
-              <span class="chat-live"><i></i>Qwen3.6 · local</span>
+              <span class="chat-live"><i></i>IA local</span>
             </div>
             <div class="chat-body" data-chat aria-live="off"></div>
             <div class="chat-input"><span data-chat-typing>Escribe tu pregunta o adjunta un archivo…</span><b>↵</b></div>
           </div>
-          <p class="fine">Recreación animada con preguntas reales del banco de pruebas del asistente (<code>bench-chatbot.js</code>). Las herramientas que se muestran son las que el modelo debe invocar en cada caso.</p>
+          <p class="fine">Animación ilustrativa con preguntas de nuestras pruebas internas.</p>
         </div>
 
         <div class="bot-specs">
           <article class="spec spec-wide">
-            <p class="spec-k">Modelo por defecto</p>
-            <p class="spec-v">Qwen3.6-35B-A3B</p>
-            <p class="spec-d">Mezcla de expertos de 35 mil millones de parámetros con solo 3 mil millones activos por token, servido con llama.cpp sobre CUDA. Lee imágenes: es multimodal.</p>
+            <p class="spec-k">Privada por diseño</p>
+            <p class="spec-v">Tu IA, en tu oficina</p>
+            <p class="spec-d">CHUDBOT corre en una computadora de tu empresa. Lo que le preguntas y la contabilidad que consulta no se envían a servicios de inteligencia artificial externos.</p>
           </article>
           <article class="spec">
-            <p class="spec-k">Generación</p>
-            <p class="spec-v"><span data-count="33">33</span><small> tokens/s</small></p>
-            <p class="spec-d">RTX 4070 Laptop de 8 GB + 16 GB de RAM.</p>
-          </article>
-          <article class="spec">
-            <p class="spec-k">Casos contables verificables</p>
-            <p class="spec-v"><span data-count="7">7</span><small>/8</small></p>
-            <p class="spec-d">Y 11/11 en uso correcto de herramientas.</p>
-          </article>
-          <article class="spec">
-            <p class="spec-k">Herramientas</p>
+            <p class="spec-k">Acciones disponibles</p>
             <p class="spec-v"><span data-count="36">36</span></p>
-            <p class="spec-d">16 de consulta y 20 de escritura que exigen tu confirmación.</p>
+            <p class="spec-d">Consulta saldos, facturas, clientes, inventario, pólizas y nómina, y registra movimientos por ti.</p>
           </article>
           <article class="spec">
-            <p class="spec-k">Fragmentos indexados</p>
-            <p class="spec-v"><span data-count="22232">22,232</span></p>
-            <p class="spec-d">De 40 documentos, en 8,238 secciones, sobre pgvector.</p>
+            <p class="spec-k">Siempre con tu permiso</p>
+            <p class="spec-v"><span data-count="20">20</span></p>
+            <p class="spec-d">de esas acciones crean o modifican datos y te piden confirmación antes de ejecutarse.</p>
+          </article>
+          <article class="spec">
+            <p class="spec-k">Biblioteca normativa</p>
+            <p class="spec-v"><span data-count="40">40</span><small> documentos</small></p>
+            <p class="spec-d">Leyes, reglamentos, RMF 2026 y guías del SAT, en 22,232 fragmentos para llegar al artículo exacto.</p>
+          </article>
+          <article class="spec">
+            <p class="spec-k">Casos contables y fiscales</p>
+            <p class="spec-v"><span data-count="7">7</span><small> de 8 correctos</small></p>
+            <p class="spec-d">En nuestras pruebas internas con respuesta verificable, como honorarios con retenciones.</p>
           </article>
           <article class="spec spec-wide">
-            <p class="spec-k">Archivos que entiende</p>
-            <p class="spec-v spec-files"><span>PDF</span><span>Word</span><span>Excel</span><span>PowerPoint</span><span>CSV</span><span>XML CFDI</span><span>JSON</span><span>Imágenes</span></p>
-            <p class="spec-d">Hasta 20 MB por archivo. Si adjuntas una factura, CHUDBOT te ofrece registrarla, dar de alta al proveedor o crear la póliza.</p>
+            <p class="spec-k">Lee tus archivos</p>
+            <p class="spec-v spec-files"><span>PDF</span><span>Word</span><span>Excel</span><span>PowerPoint</span><span>CSV</span><span>XML de facturas</span><span>Imágenes</span></p>
+            <p class="spec-d">Hasta 20 MB. Si adjuntas una factura, CHUDBOT te ofrece registrarla, dar de alta al proveedor o crear la póliza.</p>
+          </article>
+          <article class="spec spec-wide">
+            <p class="spec-k">Equipo recomendado para CHUDBOT</p>
+            <p class="spec-d">Una computadora con tarjeta gráfica NVIDIA de 8 GB y 16 GB de RAM, como la de nuestras pruebas. El resto del sistema se usa desde el navegador.</p>
           </article>
         </div>
       </div>
 
-      <!-- Cómo responde: RAG -->
+      <!-- Cómo responde -->
       <div class="wrap rag">
         <h3 class="rag-title" data-reveal>Cómo encuentra el artículo exacto</h3>
         <ol class="rag-flow" data-rag>
-          <li><span class="rag-n">1</span><strong>Tu pregunta</strong><small>en lenguaje natural</small></li>
-          <li><span class="rag-n">2</span><strong>Embedding</strong><small>nomic-embed-text v1.5 · 768 dimensiones</small></li>
-          <li><span class="rag-n">3</span><strong>Búsqueda vectorial</strong><small>pgvector sobre 22,232 fragmentos</small></li>
-          <li><span class="rag-n">4</span><strong>Contexto completo</strong><small>el fragmento trae su sección padre</small></li>
-          <li><span class="rag-n">5</span><strong>Modelo local</strong><small>responde y cita la fuente</small></li>
+          <li><span class="rag-n">1</span><strong>Preguntas</strong><small>en español, como se lo dirías a tu contador</small></li>
+          <li><span class="rag-n">2</span><strong>Entiende el tema</strong><small>busca por el sentido, no por palabras sueltas</small></li>
+          <li><span class="rag-n">3</span><strong>Busca en la ley</strong><small>entre 22,232 fragmentos de 40 documentos</small></li>
+          <li><span class="rag-n">4</span><strong>Lee el contexto</strong><small>revisa la sección completa del artículo</small></li>
+          <li><span class="rag-n">5</span><strong>Responde y cita</strong><small>con la fuente para que la verifiques</small></li>
         </ol>
-      </div>
-
-      <!-- Benchmark -->
-      <div class="wrap bench">
-        <div class="bench-copy">
-          <h3 data-reveal>Elegimos el modelo midiendo, no adivinando.</h3>
-          <p data-reveal>Cinco modelos probados con el chatbot real: las 36 herramientas, el prompt de sistema de producción (~10,000 tokens) y casos con respuesta verificable, como honorarios con retenciones o el plazo de la declaración mensual.</p>
-          <p class="fine">Fuente: <code>scripts/feria-ia/LEEME.md</code> del repositorio. Equipo: i9-14900HX, 16 GB DDR5, RTX 4070 Laptop 8 GB.</p>
-        </div>
-        <div class="bench-chart" data-bench role="table" aria-label="Comparativa de modelos">
-          <div class="bench-row bench-legend" role="row">
-            <span role="columnheader">Modelo</span><span role="columnheader">Herramientas correctas</span><span role="columnheader">Tokens/s</span>
-          </div>
-          <div class="bench-row is-best" role="row">
-            <span role="cell">Qwen3.6-35B-A3B <em>Calidad</em></span>
-            <span role="cell" class="bar"><i style="--v:1"></i><b>11/11</b></span>
-            <span role="cell" class="bar bar-speed"><i style="--v:.59"></i><b>~33</b></span>
-          </div>
-          <div class="bench-row" role="row">
-            <span role="cell">Qwen3-8B <em>Rápido</em></span>
-            <span role="cell" class="bar"><i style="--v:1"></i><b>11/11</b></span>
-            <span role="cell" class="bar bar-speed"><i style="--v:.8"></i><b>40–49</b></span>
-          </div>
-          <div class="bench-row" role="row">
-            <span role="cell">Gemma-4-E4B</span>
-            <span role="cell" class="bar"><i style="--v:.909"></i><b>10/11</b></span>
-            <span role="cell" class="bar bar-speed"><i style="--v:1"></i><b>56</b></span>
-          </div>
-          <div class="bench-row" role="row">
-            <span role="cell">Qwen3.5-9B</span>
-            <span role="cell" class="bar"><i style="--v:.818"></i><b>9/11</b></span>
-            <span role="cell" class="bar bar-speed"><i style="--v:.75"></i><b>42</b></span>
-          </div>
-          <div class="bench-row" role="row">
-            <span role="cell">Gemma-4-12B</span>
-            <span role="cell" class="bar"><i style="--v:.818"></i><b>9/11</b></span>
-            <span role="cell" class="bar bar-speed"><i style="--v:.52"></i><b>29</b></span>
-          </div>
-          <p class="bench-note">En contabilidad y fiscal, el modelo Calidad acertó 7 de 8 casos y el Rápido 5 de 8.</p>
-        </div>
       </div>
     </section>
 
     <!-- ============ Temas: Grafito y Medianoche ============ -->
     <section class="themes" aria-labelledby="themes-title">
       <div class="wrap section-head">
-        <p class="eyebrow">Sistema de diseño propio</p>
+        <p class="eyebrow">Modo claro y oscuro</p>
         <h2 id="themes-title" data-reveal>Grafito de día.<br><span class="muted">Medianoche de noche.</span></h2>
-        <p class="lead" data-reveal>Las 24 pantallas comparten un sistema de diseño con tema claro y oscuro, tipografía Inter e íconos Lucide. Desliza o arrastra para comparar.</p>
+        <p class="lead" data-reveal>Trabaja con el tema claro de día y el oscuro de noche: las 24 pantallas están diseñadas para ambos. Desliza o arrastra para comparar.</p>
       </div>
       <div class="wrap">
         <div class="compare" data-compare>
@@ -557,11 +533,11 @@
       </div>
     </section>
 
-    <!-- ============ Tecnología ============ -->
-    <section class="tech" id="tecnologia" aria-labelledby="tech-title">
+    <!-- ============ Seguridad y control ============ -->
+    <section class="tech" id="seguridad" aria-labelledby="tech-title">
       <div class="wrap section-head">
-        <p class="eyebrow">Ingeniería</p>
-        <h2 id="tech-title" data-reveal>Cuatro capas.<br><span class="muted">Cero cajas negras.</span></h2>
+        <p class="eyebrow">Control y privacidad</p>
+        <h2 id="tech-title" data-reveal>Tus datos en tu oficina.<br><span class="muted">Tus reglas en cada acceso.</span></h2>
       </div>
       <div class="wrap arch" data-arch>
         <svg class="arch-lines" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
@@ -571,75 +547,57 @@
           <path class="flow" d="M300 390 C 420 390, 480 260, 600 260"/>
         </svg>
         <article class="node n-front">
-          <p class="node-k">Interfaz</p>
-          <h3>React 18 + Vite 7</h3>
-          <p>76 archivos JSX, estado con Zustand, gráficas con Chart.js, exportación con jsPDF y SheetJS.</p>
+          <p class="node-k">Tu equipo de trabajo</p>
+          <h3>Cada quien, lo suyo</h3>
+          <p>Usuario propio, verificación en dos pasos y solo los permisos de su rol.</p>
         </article>
         <article class="node n-api">
-          <p class="node-k">API</p>
-          <h3>Node.js + Express</h3>
-          <p><b data-count="273">273</b> endpoints REST. JWT en cookies, doble factor TOTP, Helmet y límite de peticiones.</p>
+          <p class="node-k">CHUDBI</p>
+          <h3>Un solo sistema</h3>
+          <p>24 módulos conectados: lo que se captura una vez sirve en ventas, contabilidad, bancos y nómina.</p>
         </article>
         <article class="node n-db">
-          <p class="node-k">Datos</p>
-          <h3>PostgreSQL 16 + pgvector</h3>
-          <p><b data-count="119">119</b> tablas, 1,141 columnas, 180 índices. Triggers que bloquean periodos cerrados.</p>
+          <p class="node-k">Tu información</p>
+          <h3>Con historial completo</h3>
+          <p>Bitácora de cada cambio con usuario, fecha e IP, y meses cerrados que nadie puede modificar.</p>
         </article>
         <article class="node n-ai">
-          <p class="node-k">IA local</p>
-          <h3>llama.cpp + CUDA</h3>
-          <p>Qwen3.6-35B-A3B, embeddings nomic de 768 dimensiones y Docling (IBM) para OCR de documentos.</p>
+          <p class="node-k">CHUDBOT</p>
+          <h3>IA en tu equipo</h3>
+          <p>Responde desde una computadora de tu oficina y nunca modifica nada sin tu confirmación.</p>
         </article>
         <article class="node n-ext">
-          <p class="node-k">Integraciones fiscales</p>
-          <h3>SAT y PAC</h3>
-          <p>Timbrado con Facturapi, descarga masiva con @nodecfdi y consulta pública de estatus del SAT.</p>
+          <p class="node-k">SAT y PAC</p>
+          <h3>Cumplimiento fiscal</h3>
+          <p>Timbrado con PAC certificado, descarga masiva con tu FIEL y consulta del estatus de tus CFDI.</p>
         </article>
       </div>
-
-      <ul class="wrap stack" aria-label="Tecnologías">
-        <li>React 18</li><li>Vite 7</li><li>Zustand</li><li>Chart.js</li><li>Lucide</li><li>Node.js</li><li>Express</li>
-        <li>PostgreSQL 16</li><li>pgvector 0.8.6</li><li>llama.cpp</li><li>Qwen3.6</li><li>Docling</li><li>Facturapi</li>
-        <li>@nodecfdi</li><li>ExcelJS</li><li>Puppeteer</li><li>Playwright</li><li>axe-core</li><li>Docker Compose</li><li>AWS EC2</li>
-      </ul>
     </section>
 
     <!-- ============ Números ============ -->
     <section class="numbers" id="numeros" aria-labelledby="num-title">
       <div class="wrap section-head">
-        <p class="eyebrow">Números reales, medidos</p>
+        <p class="eyebrow">En cifras</p>
         <h2 id="num-title" data-reveal>Nada de “más de”.<br><span class="muted">Contamos cada uno.</span></h2>
       </div>
       <div class="wrap num-grid">
-        <div class="num"><p class="num-v" data-count="24">24</p><p class="num-k">módulos en el menú</p></div>
-        <div class="num"><p class="num-v" data-count="273">273</p><p class="num-k">endpoints de la API</p></div>
-        <div class="num"><p class="num-v" data-count="119">119</p><p class="num-k">tablas en PostgreSQL</p></div>
-        <div class="num"><p class="num-v" data-count="36">36</p><p class="num-k">herramientas de IA</p></div>
-        <div class="num"><p class="num-v" data-count="40">40</p><p class="num-k">documentos normativos indexados</p></div>
-        <div class="num"><p class="num-v" data-count="1076">1,076</p><p class="num-k">cuentas del código agrupador SAT</p></div>
-        <div class="num"><p class="num-v" data-count="219">219</p><p class="num-k">pruebas automatizadas</p></div>
-        <div class="num"><p class="num-v" data-count="58200" data-prefix="≈">≈58,200</p><p class="num-k">líneas de código propio</p></div>
+        <div class="num"><p class="num-v" data-count="24">24</p><p class="num-k">módulos en un solo sistema</p></div>
+        <div class="num"><p class="num-v" data-count="40">40</p><p class="num-k">leyes, reglamentos y guías del SAT que CHUDBOT consulta</p></div>
+        <div class="num"><p class="num-v" data-count="22232">22,232</p><p class="num-k">fragmentos normativos para citar el artículo exacto</p></div>
+        <div class="num"><p class="num-v" data-count="1076">1,076</p><p class="num-k">cuentas del código agrupador del SAT</p></div>
+        <div class="num"><p class="num-v" data-count="36">36</p><p class="num-k">acciones que CHUDBOT puede hacer por ti</p></div>
+        <div class="num"><p class="num-v" data-count="20">20</p><p class="num-k">acciones que siempre piden tu confirmación</p></div>
       </div>
-
-      <div class="wrap evo" data-evo>
-        <div class="evo-head">
-          <h3 data-reveal>De la versión ALPHA a hoy</h3>
-          <p data-reveal>La ALPHA 2.0.0 corría sobre SQLite. Hoy CHUDBI corre sobre PostgreSQL 16 con búsqueda vectorial.</p>
-        </div>
-        <div class="evo-rows">
-          <div class="evo-row"><span class="evo-k">Líneas de código</span><div class="evo-bars"><i class="was" style="--v:.132"></i><i class="now" style="--v:1"></i></div><span class="evo-v">7,700 → <b>≈58,200</b></span></div>
-          <div class="evo-row"><span class="evo-k">Endpoints de la API</span><div class="evo-bars"><i class="was" style="--v:.147"></i><i class="now" style="--v:1"></i></div><span class="evo-v">40+ → <b>273</b></span></div>
-          <div class="evo-row"><span class="evo-k">Tablas</span><div class="evo-bars"><i class="was" style="--v:.126"></i><i class="now" style="--v:1"></i></div><span class="evo-v">15 → <b>119</b></span></div>
-          <div class="evo-row"><span class="evo-k">Base de datos</span><div class="evo-swap"><span>SQLite</span><i>→</i><b>PostgreSQL 16 + pgvector</b></div></div>
-        </div>
-        <p class="fine">Conteos del 8 de octubre de 2026 sobre el código de la rama <code>production</code> y la base de datos de desarrollo. Las líneas suman backend (rutas, servicios, utilidades, migraciones) y frontend, sin dependencias ni respaldos. Los datos de la ALPHA 2.0.0 vienen del plan de negocios del proyecto.</p>
-      </div>
+      <p class="wrap fine num-note">Cifras del sistema al 8 de octubre de 2026.</p>
     </section>
 
     <!-- ============ Hecho en México ============ -->
     <section class="made" aria-labelledby="made-title">
       <div class="wrap made-inner">
-        <img class="made-logo" src="assets/brand/logo-v-white.png" alt="CHUDBI · Debe Haber" loading="lazy" width="900" height="792">
+        <div class="made-logo-wrap">
+          <img class="made-logo only-dark" src="assets/brand/logo-v-white.png" alt="CHUDBI · Debe Haber" loading="lazy" width="900" height="792">
+          <img class="made-logo only-light" src="assets/brand/logo-v.png" alt="CHUDBI · Debe Haber" loading="lazy" width="900" height="792">
+        </div>
         <div>
           <p class="eyebrow">Hecho en México</p>
           <h2 id="made-title" data-reveal>Diseñado en México,<br><span class="muted">para la ley mexicana.</span></h2>
@@ -699,15 +657,16 @@
   <footer class="footer">
     <div class="wrap footer-top">
       <div>
-        <img src="assets/brand/logo-h-white.png" alt="CHUDBI · Debe Haber" class="footer-logo" loading="lazy" width="900" height="231">
+        <img src="assets/brand/logo-h-white.png" alt="CHUDBI · Debe Haber" class="footer-logo only-dark" loading="lazy" width="900" height="231">
+        <img src="assets/brand/logo-h.png" alt="CHUDBI · Debe Haber" class="footer-logo only-light" loading="lazy" width="900" height="231">
         <p>ERP fiscal para PYMEs mexicanas con inteligencia artificial local.</p>
       </div>
       <nav aria-label="Pie de página">
         <a href="#recorrido">Recorrido</a>
         <a href="#modulos">Módulos</a>
         <a href="#chudbot">CHUDBOT</a>
-        <a href="#tecnologia">Tecnología</a>
-        <a href="documentacion.html">Documentación</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="documentacion.html">Guía de uso</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
@@ -721,6 +680,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="assets/js/tema.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>
