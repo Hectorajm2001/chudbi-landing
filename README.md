@@ -84,4 +84,4 @@ function doPost(e) {
 python -m http.server 8000
 ```
 
-Abre `http://localhost:8000`. GitHub Pages publica la rama `main` desde la raíz.
+Abre `http://localhost:8000`. Cada push a `main` se despliega en Vercel (https://chudbi-landing.vercel.app/) y en GitHub Pages.
