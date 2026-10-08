@@ -27,13 +27,17 @@ sigue completa y legible: `main.js` quita la intro y deja el recorrido como tarj
 | Hero | Título por palabras, captura real del Dashboard que se endereza con el scroll, ilustraciones con parallax y foco que sigue al puntero |
 | Biblioteca normativa | Marquesina de los documentos que consulta CHUDBOT; acelera con la velocidad del scroll |
 | Manifiesto | Las palabras se encienden al avanzar |
-| Recorrido | En escritorio se fija la pantalla y cambian 11 módulos con transición de capturas; en móvil son tarjetas |
-| Módulos | Scroll horizontal fijado con los 24 módulos del menú real |
+| Recorrido | Se fija la pantalla y cambian 11 módulos con transición de capturas. En celular la captura va arriba y se recorre con un paneo de cámara dentro de cada paso |
+| Módulos | Scroll horizontal fijado con los 24 módulos del menú real (también en celular) |
 | CHUDBOT | Robot en SVG (parpadea, sus ojos siguen al puntero, habla), chat animado con casos del banco de pruebas, flujo RAG y benchmark de modelos |
 | Temas | Comparador arrastrable entre Medianoche y Grafito |
 | Tecnología, Números | Arquitectura con flujos animados, contadores y barras de evolución |
 
-Con `prefers-reduced-motion` no hay intro, pines ni marquesina.
+En celular el hero recorre el Dashboard como una cámara, el robot sigue el dedo y el comparador se mueve con el scroll.
+Solo las pantallas muy bajas (celular en horizontal, menos de 600 px de alto) usan tarjetas apiladas.
+
+Con «Reducir movimiento» activado en el sistema (`prefers-reduced-motion`) se conservan fundidos, contadores, el chat
+y el recorrido fijado con fundidos; se quitan intro, parallax, marquesina y desplazamientos grandes.
 
 ## De dónde salen los datos
 
