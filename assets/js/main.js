@@ -76,7 +76,7 @@
      ------------------------------------------------------------------ */
   const form = $('#contact-form');
   const status = $('.form-status');
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyzjzAcTr8SfbzOALlnPn3p7x2eiQ_uO9qxKeDT8rqZNPyHaU145nzWJPehN4AubWM/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzBUan0OSPG9zMFkuAqbgARDGH1fufzZ3wO9Udo96MdZkZAEvmDIvWlAJLZ3haurwM/exec';
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
