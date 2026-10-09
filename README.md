@@ -130,7 +130,12 @@ Cada mensaje llega a una hoja de Google Sheets mediante un Web App de Apps Scrip
      const lock = LockService.getScriptLock();
      lock.tryLock(10000);
      try {
-       const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+       const ss = SpreadsheetApp.getActiveSpreadsheet();
+       let sheet = ss.getSheetByName(SHEET_NAME);
+       if (!sheet) { // si la pestaña no existe (o tiene otro nombre), se crea con encabezados
+         sheet = ss.insertSheet(SHEET_NAME);
+         sheet.appendRow(['Timestamp', 'Nombre', 'Email', 'Empresa', 'Telefono', 'Mensaje']);
+       }
        const d = e.parameter;
        sheet.appendRow([new Date(), d.nombre || '', d.email || '', d.empresa || '', d.telefono || '', d.mensaje || '']);
        return ContentService.createTextOutput(JSON.stringify({ result: 'success' }))
