@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chudbi-landing.vercel.app/sitemap.xml
+Sitemap: https://www.chudbi.com.mx/sitemap.xml

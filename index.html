@@ -16,20 +16,21 @@
   <meta property="og:site_name" content="CHUDBI">
   <meta property="og:title" content="CHUDBI · Software contable y ERP fiscal para PyMEs en México">
   <meta property="og:description" content="Contabilidad, CFDI 4.0, nómina 2026 e inventarios en un solo sistema, con un asistente de IA que corre en tu propio equipo.">
-  <meta property="og:url" content="https://chudbi-landing.vercel.app/">
-  <meta property="og:image" content="https://chudbi-landing.vercel.app/assets/brand/og-image.jpg">
+  <meta property="og:url" content="https://www.chudbi.com.mx/">
+  <meta property="og:image" content="https://www.chudbi.com.mx/assets/brand/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="CHUDBI, software contable y ERP fiscal para PyMEs mexicanas">
-  <link rel="canonical" href="https://chudbi-landing.vercel.app/">
+  <link rel="canonical" href="https://www.chudbi.com.mx/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="CHUDBI · Software contable y ERP fiscal para PyMEs en México">
   <meta name="twitter:description" content="Contabilidad, CFDI 4.0, nómina 2026 e inventarios en un solo sistema, con un asistente de IA que corre en tu propio equipo.">
-  <meta name="twitter:image" content="https://chudbi-landing.vercel.app/assets/brand/og-image.jpg">
+  <meta name="twitter:image" content="https://www.chudbi.com.mx/assets/brand/og-image.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Sora:wght@300;400;500;600;700&display=swap"></noscript>
   <script>
     // Tema antes de pintar: lo que eligió la persona o, si no, el claro
     (function () {
@@ -48,19 +49,19 @@
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://chudbi-landing.vercel.app/#org",
+        "@id": "https://www.chudbi.com.mx/#org",
         "name": "CHUDBI",
-        "url": "https://chudbi-landing.vercel.app/",
-        "logo": "https://chudbi-landing.vercel.app/assets/brand/icon-512.png",
+        "url": "https://www.chudbi.com.mx/",
+        "logo": "https://www.chudbi.com.mx/assets/brand/icon-512.png",
         "slogan": "Debe Haber"
       },
       {
         "@type": "WebSite",
-        "@id": "https://chudbi-landing.vercel.app/#web",
-        "url": "https://chudbi-landing.vercel.app/",
+        "@id": "https://www.chudbi.com.mx/#web",
+        "url": "https://www.chudbi.com.mx/",
         "name": "CHUDBI",
         "inLanguage": "es-MX",
-        "publisher": { "@id": "https://chudbi-landing.vercel.app/#org" }
+        "publisher": { "@id": "https://www.chudbi.com.mx/#org" }
       },
       {
         "@type": "SoftwareApplication",
@@ -69,8 +70,8 @@
         "applicationSubCategory": "ERP y contabilidad",
         "operatingSystem": "Web",
         "inLanguage": "es-MX",
-        "url": "https://chudbi-landing.vercel.app/",
-        "image": "https://chudbi-landing.vercel.app/assets/brand/og-image.jpg",
+        "url": "https://www.chudbi.com.mx/",
+        "image": "https://www.chudbi.com.mx/assets/brand/og-image.jpg",
         "description": "Software contable y ERP fiscal para PyMEs en México: contabilidad, facturación CFDI 4.0, nómina 2026, bancos, inventarios, CRM e impuestos, con un asistente de IA local.",
         "featureList": [
           "Contabilidad con partida doble y código agrupador del SAT",
@@ -82,19 +83,26 @@
           "Impuestos e integración con el SAT",
           "Asistente de IA local que cita la ley vigente"
         ],
-        "publisher": { "@id": "https://chudbi-landing.vercel.app/#org" }
+        "publisher": { "@id": "https://www.chudbi.com.mx/#org" }
       }
     ]
   }
   </script>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3BDRFKE6S"></script>
+  <!-- Google tag (gtag.js): se carga después de la página para no bloquear -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-S3BDRFKE6S');
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var g = document.createElement('script');
+        g.async = true;
+        g.src = 'https://www.googletagmanager.com/gtag/js?id=G-S3BDRFKE6S';
+        document.head.appendChild(g);
+      }, 1500);
+    });
   </script>
 </head>
 <body>
@@ -116,8 +124,8 @@
   <header class="nav" data-nav>
     <div class="nav-inner">
       <a href="#inicio" class="nav-logo" aria-label="CHUDBI, ir al inicio">
-        <img class="only-dark" src="assets/brand/logo-h-white.png" alt="CHUDBI · Debe Haber" width="900" height="231">
-        <img class="only-light" src="assets/brand/logo-h.png" alt="CHUDBI · Debe Haber" width="900" height="231">
+        <img class="only-dark" src="assets/brand/logo-h-white-nav.webp" alt="CHUDBI · Debe Haber" width="300" height="77">
+        <img class="only-light" src="assets/brand/logo-h-nav.webp" alt="CHUDBI · Debe Haber" width="300" height="77">
       </a>
       <nav class="nav-links" aria-label="Secciones">
         <a href="#recorrido">Recorrido</a>
@@ -181,8 +189,8 @@
       <div class="hero-stage" aria-label="Captura real del Dashboard de CHUDBI">
         <div class="hero-frame">
           <div class="chrome"><i></i><i></i><i></i><span>chudbi · Dashboard de control ejecutivo</span></div>
-          <img class="only-dark" src="assets/shots/dashboard-2400.webp" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" loading="lazy">
-          <img class="only-light" src="assets/shots/dashboard-claro-2400.webp" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" fetchpriority="high">
+          <img class="only-dark" src="assets/shots/dashboard-1200.webp" srcset="assets/shots/dashboard-1200.webp 1200w, assets/shots/dashboard-2400.webp 2400w" sizes="(max-width: 900px) 100vw, 1200px" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" loading="lazy">
+          <img class="only-light" src="assets/shots/dashboard-claro-1200.webp" srcset="assets/shots/dashboard-claro-1200.webp 1200w, assets/shots/dashboard-claro-2400.webp 2400w" sizes="(max-width: 900px) 100vw, 1200px" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" fetchpriority="high">
           <div class="frame-glare" aria-hidden="true"></div>
         </div>
         <img class="float f-bot" src="assets/icons/chudbot.webp" alt="" aria-hidden="true">

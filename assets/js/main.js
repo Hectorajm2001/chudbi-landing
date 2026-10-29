@@ -416,7 +416,8 @@
   const first = !store.get('chudbi-intro');
   store.set('chudbi-intro', '1');
 
-  if (loader && !reduce) {
+  // El intro era el elemento LCP (6 s en móvil): solo en pantallas grandes
+  if (loader && !reduce && window.innerWidth >= 768) {
     loader.style.animation = 'none';
     if (lenis) lenis.stop();
     html.style.overflow = 'hidden';
@@ -424,7 +425,7 @@
       defaults: { ease: 'expo.out' },
       onComplete: () => { loader.remove(); html.style.overflow = ''; if (lenis) lenis.start(); ScrollTrigger.refresh(); },
     });
-    tl.timeScale(first ? 1.7 : 3);
+    tl.timeScale(first ? 2.5 : 3);
     tl.fromTo('.lm-mint', { opacity: 0, y: 50, scale: .6, transformOrigin: '80% 100%' }, { opacity: 1, y: 0, scale: 1, duration: .9 })
       .fromTo('.lm-teal', { opacity: 0, y: 70, scale: .55, transformOrigin: '55% 100%' }, { opacity: 1, y: 0, scale: 1, duration: 1 }, '-=.75')
       .fromTo('.lm-blue', { opacity: 0, y: 50, scale: .6, transformOrigin: '20% 100%' }, { opacity: 1, y: 0, scale: 1, duration: .9 }, '-=.8')

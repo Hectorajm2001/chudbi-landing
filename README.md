@@ -11,11 +11,11 @@
 </p>
 
 <p align="center">
-  <a href="https://chudbi-landing.vercel.app/"><strong>Ver el sitio</strong></a>
+  <a href="https://www.chudbi.com.mx/"><strong>Ver el sitio</strong></a>
   &nbsp;·&nbsp;
-  <a href="https://chudbi-landing.vercel.app/documentacion.html">Guía de uso</a>
+  <a href="https://www.chudbi.com.mx/documentacion.html">Guía de uso</a>
   &nbsp;·&nbsp;
-  <a href="https://chudbi-landing.vercel.app/#contacto">Solicitar demo</a>
+  <a href="https://www.chudbi.com.mx/#contacto">Solicitar demo</a>
 </p>
 
 ---
@@ -61,7 +61,7 @@ Después abre <http://localhost:8000>.
 
 Cada push a `main` publica el sitio automáticamente en:
 
-- **Vercel:** <https://chudbi-landing.vercel.app/>
+- **Sitio:** <https://www.chudbi.com.mx/> (también en <https://chudbi-landing.vercel.app/>)
 - **GitHub Pages:** <https://hectorajm2001.github.io/chudbi-landing/>
 
 Este README no se publica en Vercel (`.vercelignore`).
