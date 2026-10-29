@@ -550,6 +550,7 @@ h3 { font-family: var(--f-display); font-weight: 600; letter-spacing: -.02em; li
    ===================================================================== */
 .themes { padding: clamp(110px, 14vw, 180px) 0 clamp(60px, 8vw, 100px); }
 .compare { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid var(--line-2); box-shadow: var(--shadow-xl); --pos: 50%; user-select: none; touch-action: pan-y; }
+.compare img { -webkit-user-drag: none; pointer-events: none; }  /* evita que el navegador arrastre la imagen y cancele el gesto */
 .compare > img { width: 100%; height: auto; }
 .compare-top { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
 .compare-top img { width: 100%; height: 100%; object-fit: cover; object-position: top left; }

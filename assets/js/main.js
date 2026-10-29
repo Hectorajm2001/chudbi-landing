@@ -129,6 +129,7 @@
     range.addEventListener('input', () => { cmp.touched = true; cmp.set(+range.value); });
     let dragging = false;
     const follow = (e) => { const r = compare.getBoundingClientRect(); cmp.set(((e.clientX - r.left) / r.width) * 100); };
+    compare.addEventListener('dragstart', (e) => e.preventDefault());
     compare.addEventListener('pointerdown', (e) => {
       dragging = true; cmp.touched = true;
       compare.classList.add('is-dragging');
