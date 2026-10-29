@@ -424,7 +424,7 @@
       defaults: { ease: 'expo.out' },
       onComplete: () => { loader.remove(); html.style.overflow = ''; if (lenis) lenis.start(); ScrollTrigger.refresh(); },
     });
-    tl.timeScale(first ? 1 : 2.2);
+    tl.timeScale(first ? 1.7 : 3);
     tl.fromTo('.lm-mint', { opacity: 0, y: 50, scale: .6, transformOrigin: '80% 100%' }, { opacity: 1, y: 0, scale: 1, duration: .9 })
       .fromTo('.lm-teal', { opacity: 0, y: 70, scale: .55, transformOrigin: '55% 100%' }, { opacity: 1, y: 0, scale: 1, duration: 1 }, '-=.75')
       .fromTo('.lm-blue', { opacity: 0, y: 50, scale: .6, transformOrigin: '20% 100%' }, { opacity: 1, y: 0, scale: 1, duration: .9 }, '-=.8')

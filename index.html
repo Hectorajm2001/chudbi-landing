@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CHUDBI · ERP fiscal mexicano con IA local</title>
-  <meta name="description" content="CHUDBI reúne contabilidad, CFDI 4.0, nómina 2026, bancos, inventarios, ventas e impuestos en un solo sistema, con CHUDBOT: un asistente de IA que corre en tu propio equipo y cita la ley vigente.">
+  <title>CHUDBI · Software contable y ERP fiscal para PyMEs en México</title>
+  <meta name="description" content="Software contable para PyMEs en México: contabilidad, CFDI 4.0, nómina 2026, bancos e inventarios en un solo sistema, con asistente de IA local.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#F5F7FB">
   <meta name="color-scheme" content="light dark">
   <link rel="icon" type="image/png" href="assets/brand/favicon-64.png">
@@ -12,14 +13,19 @@
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
-  <meta property="og:title" content="CHUDBI · ERP fiscal mexicano con IA local">
+  <meta property="og:site_name" content="CHUDBI">
+  <meta property="og:title" content="CHUDBI · Software contable y ERP fiscal para PyMEs en México">
   <meta property="og:description" content="Contabilidad, CFDI 4.0, nómina 2026 e inventarios en un solo sistema, con un asistente de IA que corre en tu propio equipo.">
   <meta property="og:url" content="https://chudbi-landing.vercel.app/">
   <meta property="og:image" content="https://chudbi-landing.vercel.app/assets/brand/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CHUDBI, software contable y ERP fiscal para PyMEs mexicanas">
   <link rel="canonical" href="https://chudbi-landing.vercel.app/">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CHUDBI · Software contable y ERP fiscal para PyMEs en México">
+  <meta name="twitter:description" content="Contabilidad, CFDI 4.0, nómina 2026 e inventarios en un solo sistema, con un asistente de IA que corre en tu propio equipo.">
+  <meta name="twitter:image" content="https://chudbi-landing.vercel.app/assets/brand/og-image.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,6 +41,52 @@
     })();
   </script>
   <link rel="stylesheet" href="assets/css/main.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://chudbi-landing.vercel.app/#org",
+        "name": "CHUDBI",
+        "url": "https://chudbi-landing.vercel.app/",
+        "logo": "https://chudbi-landing.vercel.app/assets/brand/icon-512.png",
+        "slogan": "Debe Haber"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://chudbi-landing.vercel.app/#web",
+        "url": "https://chudbi-landing.vercel.app/",
+        "name": "CHUDBI",
+        "inLanguage": "es-MX",
+        "publisher": { "@id": "https://chudbi-landing.vercel.app/#org" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "CHUDBI",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "ERP y contabilidad",
+        "operatingSystem": "Web",
+        "inLanguage": "es-MX",
+        "url": "https://chudbi-landing.vercel.app/",
+        "image": "https://chudbi-landing.vercel.app/assets/brand/og-image.jpg",
+        "description": "Software contable y ERP fiscal para PyMEs en México: contabilidad, facturación CFDI 4.0, nómina 2026, bancos, inventarios, CRM e impuestos, con un asistente de IA local.",
+        "featureList": [
+          "Contabilidad con partida doble y código agrupador del SAT",
+          "Facturación electrónica CFDI 4.0",
+          "Nómina mexicana con parámetros 2026",
+          "Bancos y conciliación",
+          "Inventarios multialmacén",
+          "CRM y ventas",
+          "Impuestos e integración con el SAT",
+          "Asistente de IA local que cita la ley vigente"
+        ],
+        "publisher": { "@id": "https://chudbi-landing.vercel.app/#org" }
+      }
+    ]
+  }
+  </script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-S3BDRFKE6S"></script>
@@ -73,6 +125,7 @@
         <a href="#chudbot">CHUDBOT</a>
         <a href="#seguridad">Seguridad</a>
         <a href="#numeros">Números</a>
+        <a href="#preguntas">Preguntas</a>
       </nav>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo oscuro">
         <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
@@ -87,6 +140,7 @@
       <a href="#chudbot">CHUDBOT</a>
       <a href="#seguridad">Seguridad</a>
       <a href="#numeros">Números</a>
+      <a href="#preguntas">Preguntas</a>
       <a href="#contacto" class="btn btn-gold"><span>Solicitar demo</span></a>
     </div>
   </header>
@@ -102,7 +156,7 @@
       </div>
 
       <div class="wrap hero-copy">
-        <p class="eyebrow hero-eyebrow">Orgullosamente mexicanos</p>
+        <p class="eyebrow hero-eyebrow">Software contable y ERP fiscal para PyMEs en México</p>
         <h1 class="hero-title" data-split>
           <span class="line">Contabilidad mexicana.</span>
           <span class="line grad">Inteligencia local.</span>
@@ -127,8 +181,8 @@
       <div class="hero-stage" aria-label="Captura real del Dashboard de CHUDBI">
         <div class="hero-frame">
           <div class="chrome"><i></i><i></i><i></i><span>chudbi · Dashboard de control ejecutivo</span></div>
-          <img class="only-dark" src="assets/shots/dashboard-2400.webp" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" loading="lazy" fetchpriority="high">
-          <img class="only-light" src="assets/shots/dashboard-claro-2400.webp" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" loading="lazy" fetchpriority="high">
+          <img class="only-dark" src="assets/shots/dashboard-2400.webp" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" loading="lazy">
+          <img class="only-light" src="assets/shots/dashboard-claro-2400.webp" alt="Dashboard de control ejecutivo de CHUDBI: facturación del mes, compras y gastos, margen operativo, valor de inventarios y bitácora de pólizas recientes." width="2400" height="1500" fetchpriority="high">
           <div class="frame-glare" aria-hidden="true"></div>
         </div>
         <img class="float f-bot" src="assets/icons/chudbot.webp" alt="" aria-hidden="true">
@@ -610,6 +664,44 @@
       </div>
     </section>
 
+    <!-- ============ Preguntas frecuentes ============ -->
+    <section class="faq" id="preguntas" aria-labelledby="faq-title">
+      <div class="wrap section-head">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h2 id="faq-title" data-reveal>Lo que suelen preguntar<br><span class="muted">antes de pedir una demo.</span></h2>
+      </div>
+      <div class="wrap faq-list">
+        <details>
+          <summary>¿Qué es CHUDBI y para quién es?</summary>
+          <p>CHUDBI es un sistema contable y administrativo para PyMEs mexicanas. Reúne contabilidad, facturación CFDI 4.0, nómina, bancos, inventarios, ventas e impuestos en 24 módulos conectados, con multiempresa desde el primer día.</p>
+        </details>
+        <details>
+          <summary>¿Genera facturas electrónicas CFDI 4.0?</summary>
+          <p>Sí. Timbra con PAC certificado, descarga el XML y el PDF, maneja el complemento de pagos y cancela con los cuatro motivos vigentes. También importa y revisa los XML que recibes y hace la descarga masiva del SAT con tu FIEL.</p>
+        </details>
+        <details>
+          <summary>¿Incluye el catálogo de cuentas con código agrupador del SAT?</summary>
+          <p>Sí: 1,076 cuentas del código agrupador, con naturaleza deudora o acreedora, que son la base de la contabilidad electrónica del Anexo 24.</p>
+        </details>
+        <details>
+          <summary>¿Calcula la nómina con los parámetros de 2026?</summary>
+          <p>Sí. Aplica la tarifa del art. 96 de la LISR (Anexo 8 RMF 2026), el subsidio para el empleo y las cuotas del IMSS, con UMA de $117.31 y salario mínimo general de $315.04. Genera recibos CFDI de nómina 1.2 y layouts SPEI y SUA.</p>
+        </details>
+        <details>
+          <summary>¿Mis datos se envían a una inteligencia artificial externa?</summary>
+          <p>No. CHUDBOT corre en una computadora de tu empresa: lo que le preguntas y la contabilidad que consulta no se envían a servicios de IA externos. Además, nunca crea ni modifica nada sin que lo confirmes.</p>
+        </details>
+        <details>
+          <summary>¿Qué equipo necesito para usar CHUDBOT?</summary>
+          <p>Una computadora con tarjeta gráfica NVIDIA de 8 GB y 16 GB de RAM para el asistente. El resto del sistema se usa desde el navegador.</p>
+        </details>
+        <details>
+          <summary>¿Cómo pido una demostración?</summary>
+          <p>Llena el <a href="#contacto">formulario de contacto</a> y agendamos una demostración de CHUDBI y CHUDBOT con tus propios números. Si ya eres cliente, consulta la <a href="documentacion.html">guía de uso</a>.</p>
+        </details>
+      </div>
+    </section>
+
     <!-- ============ Contacto ============ -->
     <section class="cta" id="contacto" aria-labelledby="cta-title">
       <div class="cta-glow" aria-hidden="true"></div>
@@ -666,6 +758,7 @@
         <a href="#modulos">Módulos</a>
         <a href="#chudbot">CHUDBOT</a>
         <a href="#seguridad">Seguridad</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
         <a href="documentacion.html">Guía de uso</a>
         <a href="#contacto">Contacto</a>
       </nav>
