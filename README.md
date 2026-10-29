@@ -7,7 +7,7 @@
 
 <p align="center">
   <strong>Sitio oficial de CHUDBI</strong><br>
-  El sistema contable y administrativo para PYMEs mexicanas, con un asistente de inteligencia artificial privado.
+  El sistema contable y administrativo para PYMEs mexicanas, con un asistente de inteligencia artificial local (un nodo de IA de CHUDBI en México).
 </p>
 
 <p align="center">
