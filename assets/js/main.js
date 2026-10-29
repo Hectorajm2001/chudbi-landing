@@ -401,6 +401,8 @@
      ------------------------------------------------------------------ */
   const heroIntro = () => {
     const t = gsap.timeline();
+    // En móvil el texto del hero se pinta de inmediato (es el LCP); animarlo con opacidad 0 lo retrasaba ~3 s
+    if (window.innerWidth < 768) return t;
     if (reduce) {
       t.from(['.hero-eyebrow', '.hero-title', '.hero-sub', '.hero-ctas', '.hero-facts', '.hero-stage'], { opacity: 0, duration: .9, stagger: .12, ease: 'power2.out' });
       return t;

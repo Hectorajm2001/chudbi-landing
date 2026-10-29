@@ -95,14 +95,20 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-S3BDRFKE6S');
-    window.addEventListener('load', function () {
-      setTimeout(function () {
-        var g = document.createElement('script');
-        g.async = true;
-        g.src = 'https://www.googletagmanager.com/gtag/js?id=G-S3BDRFKE6S';
-        document.head.appendChild(g);
-      }, 1500);
+    // Con la primera interacción o, si no hay, a los 8 s
+    var cargado = false;
+    function cargarGtag() {
+      if (cargado) return;
+      cargado = true;
+      var g = document.createElement('script');
+      g.async = true;
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=G-S3BDRFKE6S';
+      document.head.appendChild(g);
+    }
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (e) {
+      window.addEventListener(e, cargarGtag, { once: true, passive: true });
     });
+    window.addEventListener('load', function () { setTimeout(cargarGtag, 8000); });
   </script>
 </head>
 <body>
